@@ -1,0 +1,2523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro.Inspection</name>
+    </assembly>
+    <members>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory">
+            <summary>
+            This class represents an annotation category.  
+            An annotation category consists of two pieces of information: a name and color.
+            Annotation categories are defined and used in the Image Grading Utility.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.SfName">
+            <summary>
+            State flag for the Name property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.SfColor">
+            <summary>
+            State flag for Color the property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.SfNextSf">
+            <summary>
+            Next state flag to be used in derived classes.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.#ctor(System.String,Cognex.VisionPro.CogColorConstants)">
+            <summary>
+            Constructor for annotation category.
+            </summary>
+            <param name="name">Name of the annotation category, must be unique.</param>
+            <param name="color">The annotation category's color that is used for drawing the graphics</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.Name">
+            <summary>
+            Get and set the name of this annotation category.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory.Color">
+            <summary>
+            Set and set the color of this annotation category.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.Range">
+            <summary>
+            string key of ExpectedOutput's epsilon value
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.RecordVersion_1_0">
+            <summary>
+            CogRecord structure version identifier 1.0
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.Grade">
+            <summary>
+            RecordKey for CogRecord's AdvancedGrade field name
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.ExpectedResult">
+            <summary>
+            RecordKey for "ExpectedResult" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.ActualResult">
+            <summary>
+            RecordKey for "ActualResult" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.ExpectedOutputs">
+            <summary>
+            RecordKey for "ExpectedOutputs" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.ExpectedRunStatus">
+            <summary>
+            RecordKey for "ExpectedRunStatus" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.Inputs">
+            <summary>
+            RecordKey for "Inputs" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.Params">
+            <summary>
+            RecordKey for "Params" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.Results">
+            <summary>
+            RecordKey for "Results" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.OverallVerificationResult">
+            <summary>
+            RecordKey for "OverallVerificationResult" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.VerificationTimestamp">
+            <summary>
+            RecordKey for "VerificationTimestamp" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.VerifiedOutputs">
+            <summary>
+            RecordKey for "VerifiedOutputs" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.VerifiedRunStatus">
+            <summary>
+            RecordKey for "VerifiedRunStatus" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.LastRunRecord">
+            <summary>
+            RecordKey for "LastRunRecord" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.SimpleResult">
+            <summary>
+            RecordKey for "SimpleResult" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.VerificationResult">
+            <summary>
+            RecordKey for "VerificationResult" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.ResultType">
+            <summary>
+            RecordKey for "ResultType" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.InputImage">
+            <summary>
+            RecordKey for "InputImage" field
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogFieldNameConstants.NullValueDisplayValue">
+            <summary>
+            String representation of the value NULL;
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.ICogVerifier">
+            <summary>
+            Interface for verifier in the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.Run">
+            <summary>
+            Run the verifier synchronously.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.RunAsync">
+            <summary>
+            Run the verifier asynchronously.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.RunAsyncCancel">
+            <summary>
+            Cancel an asynchronous run of the verifier.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.RunAsyncPause">
+            <summary>
+            Pause an asynchronous run of the verifier.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.RunAsyncResume">
+            <summary>
+            Resume an asynchronous run of the verifier.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.ICogVerifier.SetupVisionToolInputs(Cognex.VisionPro.Inspection.CogVerificationData,Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Setup the VisionTool's inputs using the specified verificationData object.
+            </summary>
+            <param name="verificationData"></param>
+            <param name="outputData"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.InputDatabase">
+            <summary>
+            Get and set the input database.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.InputDatabaseSubset">
+            <summary>
+            Get and set the input subset array.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.OutputDatabase">
+            <summary>
+            Get and set the output database.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.VisionTool">
+            <summary>
+            Get and set the vision tool under test.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.UnknownResultBehavior">
+            <summary>
+            Get and set the behavior of the verifier when it encounters an Unknown SimpleResult.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.IsBusy">
+            <summary>
+            Get the current state of the verifier.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.Statistics">
+            <summary>
+            Get the statistics object associated with the verifier.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerifier.OutputDatabaseEnable">
+            <summary>
+            Get and set the flags which control what gets stored into the output database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.ICogVerifier.RunStarted">
+            <summary>
+            Raised when the verifier starts running.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.ICogVerifier.RunProgressChanged">
+            <summary>
+            Raised when the verifier completes one iteration.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.ICogVerifier.RunCompleted">
+            <summary>
+            Raised when the verifier has completely finished running.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.ICogVerifier.RunPaused">
+            <summary>
+            Raised when the verifier is paused.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.ICogVerifier.RunResumed">
+            <summary>
+            Raised when the verifier is resumed.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationDatabase">
+            <summary>
+            This class contains an ICogDatabase and adds additional methods that
+            are specific to the verification framework.  This class should be 
+            used whenever interacting with a verification database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.#ctor(Cognex.VisionPro.Database.ICogDatabase)">
+            <summary>
+            Constructor using the specifed ICogDatabase reference.
+            </summary>
+            <param name="database">The underlying database object to contain within the newly constructed CogVerificationDatabase.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the specified database is null.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+            <param name="info">Standard SerializationInfo argument.</param>
+            <param name="context">Standard StreamingContext argument.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Add(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Add a new data object to this verification database.  
+            The data records's key must be unique.
+            </summary>
+            <param name="newData">The new data object to add.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.AddingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Inspection.AddedEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Remove(System.String)">
+            <summary>
+            Removes the specified data object from the verification database.
+            </summary>
+            <param name="key">The key of the data object to remove.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.RemovingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Inspection.RemovedEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Replace(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Replaces data inside the verification database using the specified data. 
+            The key of the replacementData record is used to find which data object to replace.
+            </summary>
+            <param name="replacementData">The replacement CogVerificationData.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.ReplacingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Inspection.ReplacedEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Fetch(System.String)">
+            <summary>
+            Create a CogVerificationData that duplicates the item specified
+            by the supplied key. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <param name="key">Specifies the item to fetch from the database.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <returns>A newly created instance of the requested database item.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Fetch(System.Int32)">
+            <summary>
+            Create a CogVerificationData that duplicates the item specified
+            by the supplied index. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <param name="index">This index specifies the item to fetch from the database.
+            Indexing is with respect to the list of keys returned by
+            the GetKeys method.
+            </param>
+            <returns>A newly created instance of the requested database item.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(System.String,System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants)">
+            <summary>
+            Adds the specified image to this verification database.
+            If the image cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="imageFilename">The full path to the image to be added.</param>
+            <param name="referenceImage">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageFilanem is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the imageFilename is not found.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(System.String,System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String)">
+            <summary>
+            Adds the specified image to this verification database.
+            If the image cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="imageFilename">The full path to the image to be added.</param>
+            <param name="referenceImage">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <param name="defaultGrade">The default advanced grade for all the added images. If NULL then verificationData.Params.ExpectedOutputs.Grade.Value will not be set</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageFilanem is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the imageFilename is not found.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+	
+	Private Sub Init()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		' Add image to the database with no grade
+		mInputDatabase.AddImage("C:\Images\sample.bmp", True, CogVerificationSimpleResultConstants.Accept, "Excellent")
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private Init()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		// Add image to the database with no grade
+		mInputDatabase.AddImage(@"C:\Images\sample.bmp",true,CogVerificationSimpleResultConstants.Accept,"Excellent");
+
+		mInputDatabase.Disconnect();
+	}
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImages(System.String,System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants)">
+            <summary>
+            Adds all the images in the specified image directory to this verification database.
+            If any image in the image directory cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="imageDirectory">The full path to the directoy that holds the images to be added.</param>
+            <param name="referenceImages">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the add images</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageDirectory is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageDirectory is not found.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImages(System.String,System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String)">
+            <summary>
+            Adds all the images in the specified image directory to this verification database.
+            If any image in the image directory cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="imageDirectory">The full path to the directoy that holds the images to be added.</param>
+            <param name="referenceImages">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the add images</param>
+            <param name="defaultGrade">The default advanced grade for all the added images. If NULL then verificationData.Params.ExpectedOutputs.Grade.Value will not be set</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageDirectory is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageDirectory is not found.
+            </exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+	
+	Private Sub Init()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		' Add image to the database with no grade
+		mInputDatabase.AddImage("C:\Images", True, CogVerificationSimpleResultConstants.Accept, "Excellent")
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private Init()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		// Add image to the database with no grade
+		mInputDatabase.AddImage(@"C:\Images",true,CogVerificationSimpleResultConstants.Accept,"Excellent");
+
+		mInputDatabase.Disconnect();
+	}
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImages(System.String[],System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants)">
+            <summary>
+            Adds all the images in the specified array to this verification database.
+            If any image in the specified array cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="images">An array that holds the full path to the images to be added.</param>
+            <param name="referenceImages">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if images is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if images is zero length.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImages(System.String[],System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String)">
+            <summary>
+            Adds all the images in the specified array to this verification database.
+            If any image in the specified array cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="images">An array that holds the full path to the images to be added.</param>
+            <param name="referenceImages">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <param name="defaultGrade">The default advanced grade for all the added images. If NULL then verificationData.Params.ExpectedOutputs.Grade.Value will not be set</param>
+            <returns>An array of all the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if images is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if images is zero length.
+            </exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+   
+	Private Sub Init()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		' Create an array which contains the full path for the images
+		Dim images As String() = New String() {"C:\Images\sample1.bmp", "C:\Images\sample2.bmp"}
+
+		' Add image to the database with no grade
+		mInputDatabase.AddImage(images, True, CogVerificationSimpleResultConstants.Accept, "Excellent")
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private Init()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+		
+		// Create an array which contains the full path for the images
+		string[] images = new string[]{@"C:\Images\sample1.bmp",@"C:\Images\sample2.bmp"};
+		
+		// Add image to the database with no grade
+		mInputDatabase.AddImage(images,true,CogVerificationSimpleResultConstants.Accept,"Excellent");
+
+		mInputDatabase.Disconnect();
+	}
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(Cognex.VisionPro.ICogImage,System.String,System.String,System.Boolean,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String,System.Int32)">
+            <summary>
+            Adds the specified image to this verification database.
+            If the image cannot be loaded, this method stops and throws an exception.
+            </summary>
+            <param name="image">The ICogImage object that will be added to tha database</param>
+            <param name="referenceImage">Set this to true if the images should be referenced by their full path.  
+            Set this to false if the images should be embedded (copied) into the database.
+            </param>
+            <param name="imageFilename">The full path to the image to be added. (only needed if referenceImage is set to true)</param>
+            <param name="defaultKey">The value of the record key the CogRecord should be created with</param>
+            <param name="defaultGrade">The default grade for the added image</param>
+            <param name="imageIndex">The index of the image if it will be a referenced image coming from a container has multimple images inside</param>
+            <param name="defaultSimpleResult">The default simple result for the added image</param>
+            <returns>A key of the image that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if imageFilanem is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the imageFilename is not found.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the defaultKey is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(Cognex.VisionPro.ICogImage,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants)">
+            <summary>
+            Adds the specified image to this verification database.
+            </summary>
+            <param name="image">The ICogImage object that will be added to tha database</param>
+            <param name="defaultSimpleResult">The default simple result for the added image</param>
+            <returns>A key of the image that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if image is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(Cognex.VisionPro.ICogImage,Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String)">
+            <summary>
+            Adds the specified image to this verification database.
+            </summary>
+            <param name="image">The ICogImage object that will be added to tha database</param>
+            <param name="defaultSimpleResult">The default simple result for the added image</param>
+            <param name="defaultGrade">The default grade for the added image</param>
+            <returns>A key of the image that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if image is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(Cognex.VisionPro.ICogImage[],Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants)">
+            <summary>
+            Adds the specified images to this verification database.
+            </summary>
+            <param name="images">The array of ICogImage objects that will be added to tha database</param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <returns>The keys of the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if any of the images is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddImage(Cognex.VisionPro.ICogImage[],Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants,System.String)">
+            <summary>
+            Adds the specified images to this verification database.
+            </summary>
+            <param name="images">The array of ICogImage objects that will be added to tha database</param>
+            <param name="defaultSimpleResult">The default simple result for all the added images</param>
+            <param name="defaultGrade">The default grade for all the added images</param>
+            <returns>The keys of the images that were added to the database.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if any of the images is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the image cannot be added to the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.GetAnnotationCategories">
+            <summary>
+            Gets all the annotation categories in this verification database.
+            </summary>
+            <returns>An array of defined annotation categories.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddAnnotationCategory(Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory)">
+            <summary>
+            Adds the specified annotatation category to the database.
+            </summary>
+            <param name="newAnnotationCategory">The new annotation category to add.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if newAnnotationCategory Name is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if newAnnotationCategory Name is not unique.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.AddedAnnotationCategoryEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.RemoveAnnotationCategory(System.String)">
+            <summary>
+            Removes the specified annotation category definition from the verification database. 
+            Note, this method does not remove any defined defects using the removed category, it 
+            just removes the definition of the annotation category.  Users wanting to remove any
+            defects using the removed annotation category need to do this themselves manually.
+            </summary>
+            <param name="annotationCategoryToRemove">Annotation category to remove.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if annoationCategoryToRemove is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if annoationCategoryToRemove not found.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.RemovedAnnotationCategoryEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.GetGrades">
+            <summary>
+            Gets all the grades in this verification database.
+            </summary>
+            <returns>An array of defined string grades.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddGrade(System.String)">
+            <summary>
+            Adds the specified grade to the database.
+            </summary>
+            <param name="newGrade">The new grade to add.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if newGrade is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if newGrade is not unique.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.AddedGradeEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.RemoveGrade(System.String)">
+            <summary>
+            Removes the specified string grade from the verification database. 
+            Note, this method does not remove any set grades from individual records, it 
+            just removes the grade from the list of possible grades.  Users wanting to remove the
+            grade from any database record need to do this themselves.
+            </summary>
+            <param name="gradeToRemove">Grade to remove.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if gradeToRemove is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if gradeToRemove not found.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Inspection.RemovedGradeEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.GetStatistics">
+            <summary>
+            Gets the statistics object from this database.
+            </summary>
+            <returns>A reference to the statistics object.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.SetStatistics(Cognex.VisionPro.Inspection.CogVerificationStatistics)">
+            <summary>
+            Sets the statistics object for this database.  Internal use only.
+            </summary>
+            <param name="newStatistics"></param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Connect">
+            <summary>
+            Connect to the underlying ICogDatabase.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Disconnect">
+            <summary>
+            Disconnect from the underlying contained ICogDatabase.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.Clear">
+            <summary>
+            Clear the underlying contained ICogDatabase.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnAdding(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Raise the Adding event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnAdded(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Raise the Added event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnRemoving(System.String)">
+            <summary>
+            Raise the Removing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnRemoved(System.String)">
+            <summary>
+            Raise the Removed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnReplacing(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Raise the Replacing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnReplaced(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Raise the Replaced event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnClearing">
+            <summary>
+            Raise the Clearing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnCleared">
+            <summary>
+            Raise the Cleared event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnAddedAnnotationCategory(Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory)">
+            <summary>
+            Raise the AddedAnnotationCategory event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnRemovedAnnotationCategory(Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory)">
+            <summary>
+            Raise the RemovedAnnotationCategory event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnAddedGrade(System.String)">
+            <summary>
+            Raise the AddedAnnotationCategory event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnRemovedGrade(System.String)">
+            <summary>
+            Raise the RemovedAnnotationCategory event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.OnStatisticsSet">
+            <summary>
+            Raise the StatisticsSet event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.GetEnumerator">
+            <summary>
+            Create a strongly typed enumerator to facilitate
+            iterating through the items in this database. Note that
+            enumerators are fragile - externally adding or removing items
+            from this database will invalidate the enumerator. Also note
+            that modifying a CogVerificationData returned by (the Current property of)
+            this enumerator will have absolutely no affect on the database
+            since it is a freshly created copy of the database item, just
+            as with the Fetch method.
+            </summary>
+            <returns>
+            An enumerator whose Current property is of type CogVerificationData.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Create a strongly typed enumerator to facilitate
+            iterating through the items in this database. Note that
+            enumerators are fragile - externally adding or removing items
+            from this database will invalidate the enumerator. Also note
+            that modifying a CogVerificationData returned by (the Current property of)
+            this enumerator will have absolutely no affect on the database
+            since it is a freshly created copy of the database item, just
+            as with the Fetch method.
+            </summary>
+            <returns>
+            An enumerator whose Current property is of type Object.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationDatabase.Database">
+            <summary>
+            Get the unerlying contained ICogDatabase object.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Adding">
+            <summary>
+            Raised before adding data to the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Added">
+            <summary>
+            Raised after data has been added to the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Removing">
+            <summary>
+            Raised before removing data from the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Removed">
+            <summary>
+            Raised after data has been removed from the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Replacing">
+            <summary>
+            Raised before replacing data in the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Replaced">
+            <summary>
+            Raised after data has been replaced in the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Clearing">
+            <summary>
+            Raised before clearing the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.Cleared">
+            <summary>
+            Raised after the verification database has been cleared.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddedAnnotationCategory">
+            <summary>
+            Raised after an annotation category has been added to the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.RemovedAnnotationCategory">
+            <summary>
+            Raised after an annotation category has been removed from the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.AddedGrade">
+            <summary>
+            Raised after a grade has been added to the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.RemovedGrade">
+            <summary>
+            Raised after a grade has been removed from the verification database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerificationDatabase.StatisticsSet">
+            <summary>
+            Raised after a statistics object has been set for the verification database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.#ctor(Cognex.VisionPro.Inspection.CogVerificationDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.MoveNext">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="bDisposing"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationDatabase.CogVerificationDatabaseEnumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogImageReferenceRecord">
+            <summary>
+            This class is used to implement a CogRecord that references an image instead of
+            embedding.  The image is referenced via a full path and index (if the referenced image
+            contains multiple images).
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogImageReferenceRecord.SfImageFilename">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by ImageFilename may have changed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogImageReferenceRecord.CheckImageFilename">
+            <summary>
+            Verifies that the referenced image exists.  If there is a problem loading the image,
+            an exception is thrown, otherwise this method just returns.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the ImageFilename is null.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the ImageIndex is out of range.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogImageReferenceRecord.Content">
+            <summary>
+            Gets the record's content.  This is a read-only property, even though it has a setter.
+            </summary>
+            <value>The record's content.</value>
+            /// <exception cref="T:System.InvalidOperationException">
+            Thrown if the setter of this property is called.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogImageReferenceRecord.ImageFilename">
+            <summary>
+            Get/set the filename of the referenced image.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogImageReferenceRecord.ImageIndex">
+            <summary>
+            Get/set the image index, if the referenced image is a multi-image container.
+            Default unitialized value is -1, but should be set to zero in the constructor if the index is not used.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants">
+            <summary>
+            This enumeration holds the expected value for the VisionTool.RunStatus.Result property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants.Accept">
+            <summary>
+            The expected RunStatus.Result from the Vision Tool is Accept.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants.Reject">
+            <summary>
+            The expected RunStatus.Result from the Vision Tool is Reject.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationSimpleResultConstants.Unknown">
+            <summary>
+            The expected RunStatus.Result from the Vision Tool is Unknown.  
+            The verifier has a property called UnknownResultBehavior which controls what happens during
+            verification when this enumeration is encountered.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationUnknownResultBehaviorConstants">
+            <summary>
+            This enumeration is used by the verifier's UnknownResultBehavior property to control what the
+            result of the verification when the CogVerificationSimpleResultConstants.Unknown is encountered.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationUnknownResultBehaviorConstants.AlwaysMismatch">
+            <summary>
+            Always fail/mismatch the verification.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationUnknownResultBehaviorConstants.AlwaysMatch">
+            <summary>
+            Always pass/match the verification.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants">
+            <summary>
+            This enumeration is the ResultType category for verification results.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.TrueAccept">
+            <summary>
+            The expected result was Accept and the actual result from the VisionTool was Accept.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.TrueReject">
+            <summary>
+            The expected result was Reject and the actual result from the VisionTool was Reject.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.FalseAccept">
+            <summary>
+            The expected result was Reject and the actual result from the VisionTool was Accept.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.FalseReject">
+            <summary>
+            The expected result was Accept and the actual result from the VisionTool was Reject.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.UnknownAlwaysMatch">
+            <summary>
+            The expected result was Unknown and the verifier's UnknownResultBehavior property was set to AlwaysMismatch.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.UnknownAlwaysMismatch">
+            <summary>
+            The expected result was Unknown and the verifier's UnknownResultBehavior property was set to AlwaysMatch.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationResultTypeConstants.Undefined">
+            <summary>
+            The VisionTool's result was either Warning or Error.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationOutputDatabaseEnableConstants">
+            <summary>
+            This enumeration is a set of OR-able flags that control what gets stored into the output database.
+            when the verifier is running.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationOutputDatabaseEnableConstants.None">
+            <summary>
+            None of the user controllable data is stored into the output database.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationOutputDatabaseEnableConstants.StoreLastRunRecord">
+            <summary>
+            The LastRunRecord is stored into the output database.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationOutputDatabaseEnableConstants.All">
+            <summary>
+            All user controllable data is stored into the output database.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerifierBasic">
+            <summary>
+            This class is an implementation of the ICogVerifier interface.  This class 
+            takes as input an input database, an output database, and a CogToolBlock under test.  After given
+            these inputs, this verifier goes through the input database, setting up inputs to
+            the CogToolBlock, runs the CogToolBlock, and then compares the expected values in the input
+            database to the actaul values generated by the CogToolBlock.  The results of this comparison is
+            finally stored in the output database.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfInputDatabase">
+            <summary>
+            State flag for the InputDatabase property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfOutputDatabase">
+            <summary>
+            State flag for the OutputDatabase property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfVisionTool">
+            <summary>
+            State flag for the VisionTool property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfInputDatabaseSubset">
+            <summary>
+            State flag for the InputDatabaseSubset property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfUnknownResultBehavior">
+            <summary>
+            State flag for the UnknownResultBehavior property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerifierBasic.SfOutputDatabaseEnable">
+            <summary>
+            State flag for the OutputDatabaseEnable property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.#ctor">
+            <summary>
+            Default constructor.  You will need to provide the vision tool (CogToolBlock), input database, and output database
+            via the properties on this class if you use this constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.#ctor(Cognex.VisionPro.ICogTool,Cognex.VisionPro.Inspection.CogVerificationDatabase,Cognex.VisionPro.Inspection.CogVerificationDatabase)">
+            <summary>
+            Constructor which takes all necessary inputs to the verifier.
+            </summary>
+            <param name="visionTool">The CogToolBlock under test.</param>
+            <param name="inputDatabase">The input database where the golden/known results are stored.</param>
+            <param name="outputDatabase">The output database where the results of the verification will be stored.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization Constructor.
+            </summary>
+            <param name="info">
+            Standard SerializationInfo argument.
+            </param>
+            <param name="context">
+            Standard StreamingContext argument.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.Run">
+            <summary>
+            Runs the verifier synchronously.  This method will block until the entire input database is iterated over.
+            This method should not be called from a GUI callback handler (such as a button click handler)
+            since it can take a very long time to run.  Please use the RunAsync() method instead (and subscribe
+            to the various verifier events).
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is already running.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.RunAsync">
+            <summary>
+            Runs the verifier asynchronously.  As the verifier runs, various events are fired which 
+            the user should be subscribed to.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is already running.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.RunAsyncCancel">
+            <summary>
+            Cancels an asynchronous run of the verifier.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.RunAsyncPause">
+            <summary>
+            Pauses an asynchronous run of the verifier.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is currently idle.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.RunAsyncResume">
+            <summary>
+            Resumes a currently paused verifier.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is not paused.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.SetupVisionToolInputs(Cognex.VisionPro.Inspection.CogVerificationData,Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Sets up the various inputs on the CogToolBlock from the specified data object.
+            </summary>
+            <param name="verificationData">The data object that contains the inputs to the CogToolBlock</param>
+            <param name="outputData">An output data object to receive a copy of the inputs.  Should be set to null for normal usage.  Internal Use only.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.OnRunStarted">
+            <summary>
+            Raise the RunStarted event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.OnRunCompleted(System.Exception,System.Boolean,System.Object)">
+            <summary>
+            Raise the RunCompleted event.
+            </summary>
+            <param name="error">The exception if any was thrown during verification, null otherwise.</param>
+            <param name="cancelled">True if verification was cancelled, false otherwise.</param>
+            <param name="userState">Not used.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.OnRunProgress(System.Int32,Cognex.VisionPro.Inspection.CogVerificationData,System.Object)">
+            <summary>
+            Raise the RunProgress event.
+            </summary>
+            <param name="progressPercentage">The percentage the verifier has completed running (0-100).</param>
+            <param name="outputData">The output data object that was generated from the last iteration that was completed.</param>
+            <param name="userState">Not used.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.OnRunPaused">
+            <summary>
+            Raise the RunPaused event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierBasic.OnRunResumed">
+            <summary>
+            Raise the RunResumed event.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.InputDatabase">
+            <summary>
+            Get and set the input database.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.InputDatabaseSubset">
+            <summary>
+            Get and set the subset of keys that the verifier should run against.  The specified
+            keys must exist in the input database, otherwise the verifier will thrown an exception 
+            during runtime.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.OutputDatabase">
+            <summary>
+            Get and set the output database where the results of verification will be stored.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.VisionTool">
+            <summary>
+            Get and set the CogToolBlock under test.  Note, the type of this property is ICogTool, but
+            the input must be of type CogToolBlock.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.UnknownResultBehavior">
+            <summary>
+            Get and set the behavior of the verifier (either match or mismatch) when an Unknown SimpleResult is encountered.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.IsBusy">
+            <summary>
+            Get the current state of the verifier.  Returns true if the verifier is busy, otherwise returns false.  
+            No properties can be changed when the verifier is busy.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.Statistics">
+            <summary>
+            Get the statistics object associated with this verifier object.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierBasic.OutputDatabaseEnable">
+            <summary>
+            Get and set the various flags that control what gets stored into the output database when the
+            verifier runs.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+            <exception cref="T:System.InvalidOperationException">Thrown if the verifier is busy.</exception>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerifierBasic.RunStarted">
+            <summary>
+            Raised when the verifier starts running.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerifierBasic.RunProgressChanged">
+            <summary>
+            Raised when the verifier completes one iteration.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerifierBasic.RunCompleted">
+            <summary>
+            Raised when the verifier has completely finished running.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerifierBasic.RunPaused">
+            <summary>
+            Raised when the verifier is paused.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Inspection.CogVerifierBasic.RunResumed">
+            <summary>
+            Raised when the verifier is resumed.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation">
+            <summary>
+            Class that defines a image annotation in the verification framework.
+            An image annotation is a graphic (rectangle) that encompasses some region of interest on an image.
+            The image annotation also has additional information associated with it including a unique name, a category, and a free form description string.
+            This image annotation is currently not used in any vision tool algorithm, but rather it is just used for visual identification of interesting regions on an image.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.SfAnnotationName">
+            <summary>
+            State flag for the AnnotationName property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.SfCategory">
+            <summary>
+            State flag for Category the property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.SfDescription">
+            <summary>
+            State flag for Description the property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.SfGraphic">
+            <summary>
+            State flag for Graphic the property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.SfNextSf">
+            <summary>
+            Next state flag to be used in derived classes.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.#ctor(System.String,System.String,System.String,Cognex.VisionPro.ICogGraphicInteractive)">
+            <summary>
+            Constructor for an image annotation
+            </summary>
+            <param name="annotationName">The name of the image annotation, must be unique</param>
+            <param name="category">The category for the image annotation.</param>
+            <param name="description">A free form description of the image annotation</param>
+            <param name="graphic">A graphic that encompasses a region on an image.  The derived type must be of type CogRectangle.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.AnnotationName">
+            <summary>
+            Get and set the annotation name.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.Category">
+            <summary>
+            Get and set the annotation category.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.Description">
+            <summary>
+            Get and set the description of this annotation. 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationImageAnnotation.Graphic">
+            <summary>
+            Get and set the annotation graphic.  Note, this graphic must be of type CogRectangle.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.ICogVerificationData">
+            <summary>
+            Interface for data which is contained inside a verification database 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.ICogVerificationData.Record">
+            <summary>
+            Returns the contained ICogRecord.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">
+            <summary>
+            Invalid structure exception class.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogInvalidStructureException.#ctor(System.String)">
+            <summary>
+            Constructor which takes an human readable string that states what went wrong.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationRecordContainer">
+            <summary>
+            Non-change event implementation of ICogVerificationData. 
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationRecordContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationRecordContainer.Contains(System.String)">
+            <summary>
+            Returns a boolean if the specified SubRecord (via key parameter) is contained in the record this class holds.
+            </summary>
+            <param name="key">A string which is the key to be search for in the contained record.</param>
+            <returns>True if the contained record contains key, false otherwise.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationRecordContainer.Record">
+            <summary>
+            Returns the contained ICogRecord.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationChangedRecordContainer">
+            <summary>
+            Change event implementation of ICogVerificationData.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationChangedRecordContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationChangedRecordContainer.Contains(System.String)">
+            <summary>
+            Returns a boolean if the specified SubRecord (via key parameter) is contained in the record this class holds.
+            </summary>
+            <param name="key">A string which is the key to be search for in the contained record.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationChangedRecordContainer.Record">
+            <summary>
+            Returns the contained ICogRecord
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationValueContainer`1">
+            <summary>
+            Container class that provides generic type Value API.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationValueContainer`1.SfValue">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by Value may have changed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationValueContainer`1.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationValueContainer`1.Value">
+            <summary>
+            Get and set the Contents of the ICogRecord that is contained in this object.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1">
+            <summary>
+            Container class for verified output results.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.ContainsVerificationResult">
+            <summary>
+            Method which returns whether or not the "VerificationResult" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "VerificationResult" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.ContainsActualResult">
+            <summary>
+            Method which returns whether or not the "ActualResult" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "ActualResult" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.ContainsExpectedResult">
+            <summary>
+            Method which returns whether or not the "Expected" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Expected" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.VerificationResult">
+            <summary>
+            Get the verification result for this verified output.  
+            The verification result is a boolean that indicates if the expected value matched the actual value.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.ActualResult">
+            <summary>
+            Get the actual result from the vision tool under test for this verified output.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputContainer`1.ExpectedResult">
+            <summary>
+            Get the expected result from the vision tool under test for this verified output.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationData">
+            <summary>
+            Data class that contains all attributes, params, and results used and generated by the verifier.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.#ctor(System.String)">
+            <summary>
+            Constructor using a key.  A brand new CogRecord is constructed using the specified key.
+            All necessary SubRecords necessary for use with the verification framework are added to the new CogRecord.
+            </summary>
+            <param name="key">The key that is used by the contained ICogRecord.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.ContainsAttributes">
+            <summary>
+            Method which returns whether or not the "Attributes" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Attributes" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.ContainsParams">
+            <summary>
+            Method which returns whether or not the "Params" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Params" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.ContainsResults">
+            <summary>
+            Method which returns whether or not the "Results" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Results" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationData.CheckStructure">
+            <summary>
+            Checks the structure of the contained ICogRecord to make sure that it contains the necessary SubRecords for use in the verification framework.
+            This method will throw various exceptions describing any found errors.  This method does not check the "Results" SubRecord since it may not be present.
+            If no errors are found, no exception is thrown and this method just returns.
+            </summary>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record is null.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record's key is null.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Attributes SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Attributes.CreationTimestamp SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Attributes.Description SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Attributes.Name SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Attributes.Version SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params.ExpectedOutputs SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params.ExpectedRunStatus SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params.Inputs SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params.ExpectedRunStatus.SimpleResult SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record does not have the Params.ExpectedOutputs.Grade SubRecord.</exception>
+            <exception cref="T:Cognex.VisionPro.Inspection.CogInvalidStructureException">Thrown if the contained record's InputImage SubRecord is invalid.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationData.Attributes">
+            <summary>
+            Returns the container object for the Attributes collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationData.Params">
+            <summary>
+            Returns the container object for the Params collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationData.Results">
+            <summary>
+            Returns the container object for the Results collection.  
+            Note, only data objects that are outputs from the verifier will have this collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer">
+            <summary>
+            Class that contains all attributes used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.ContainsName">
+            <summary>
+            Method which returns whether or not the "Name" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Name" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.ContainsDescription">
+            <summary>
+            Method which returns whether or not the "Description" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Description" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.ContainsVersion">
+            <summary>
+            Method which returns whether or not the "Version" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.ContainsCreationTimestamp">
+            <summary>
+            Method which returns whether or not the "CreationTimestamp" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "CreationTimestamp" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.Name">
+            <summary>
+            Returns the value container object for the Name collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.Description">
+            <summary>
+            Returns the value container object for the Description collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.Version">
+            <summary>
+            Returns the value container object for the Version collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAttributesContainer.CreationTimestamp">
+            <summary>
+            Returns the value container object for the CreationTimestamp collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationParamsContainer">
+            <summary>
+            Class that contains all params used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.ContainsInputs">
+            <summary>
+            Method which returns whether or not the "Inputs" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Inputs" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.ContainsExpectedOutputs">
+            <summary>
+            Method which returns whether or not the "ExpectedOutputs" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "ExpectedOutputs" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.ContainsExpectedRunStatus">
+            <summary>
+            Method which returns whether or not the "ExpectedRunStatus" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "ExpectedRunStatus" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.Inputs">
+            <summary>
+            Returns the container object for the Inputs collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.ExpectedOutputs">
+            <summary>
+            Returns the container object for the ExpectedOutputs collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsContainer.ExpectedRunStatus">
+            <summary>
+            Returns the container object for the ExpectedRunStatus collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer">
+            <summary>
+            Class that contains inputs used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.ContainsInputImage">
+            <summary>
+            Method which returns whether or not the "InputImage" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "InputImage" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.Add(System.String,System.Object)">
+            <summary>
+            Adds an input record with the given key and inputValue to the record.
+            </summary>
+            <param name="key">The key to be added to the record's Inputs parameters. The key has to be unique</param>
+            <param name="inputValue">The value to be assigned with the given key</param>
+            <exception cref="T:Exception">Thrown if the key is not unique.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.Remove(System.String)">
+            <summary>
+            Removes subrecord with the given key from this record.
+            </summary>
+            <param name="key">The key of the subrecord to remove</param>
+            <exception cref="T:Exception">Thrown if the key is null.</exception>
+            <exception cref="T:Exception">Thrown if the key is not found.</exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.InputImage">
+            <summary>
+            Returns the container object for the InputImage collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsInputsContainer.Keys">
+            <summary>
+            Gets all the expected keys added to this record.  
+            Returns null if there are no records.  
+            Note: this will always return at least string[] { "InputImage" } since that was added to the records by default.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationInputImageContainer">
+            <summary>
+            Class that contains the InputImage used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationInputImageContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationInputImageContainer.GetImageAnnotations">
+            <summary>
+            Gets all the annotations associated with this InputImage.
+            </summary>
+            <returns>An array of image annotations</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationInputImageContainer.AddImageAnnotation(Cognex.VisionPro.Inspection.CogVerificationImageAnnotation)">
+            <summary>
+            Adds the specified annotation to this InputImage.
+            </summary>
+            <param name="annotation">The annotation to be added.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the new annotation name is not unique.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the new annotation graphic is not a CogRectangle.</exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationInputImageContainer.RemoveImageAnnotation(System.String)">
+            <summary>
+            Removes the specified annotation from this InputImage.
+            </summary>
+            <param name="annotationName">The name of the annotation to remove</param>
+            <exception cref="T:System.ArgumentException">Thrown if the specified annotation name is not found.</exception>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer">
+            <summary>
+            Class that contains the ExpectedOutputs used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.ContainsGrade">
+            <summary>
+            Method which returns whether or not the "Grade" SubRecord exists in the contained ICogRecord. Internal Use Only.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Grade" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.Add(System.String,System.Object)">
+            <summary>
+            Adds an expected output with the given key and expectedValue to the record.
+            </summary>
+            <param name="key">The key to be added to the Record's ExpectedOutput parameters. The key has to be unique</param>
+            <param name="expectedValue">The value to be assigned with the given key</param>
+            <exception cref="T:Exception">Thrown if the key is not unique.</exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+
+	Private Sub AddProperty()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		Dim mCurrentRecord As CogVerificationData = mInputDatabase.Fetch(0)
+
+		' Add additional property to the record with the name "Area" and a value of 3.1415
+		mCurrentRecord.Params.ExpectedOutputs.Add("Area", 3.1415)
+
+		' Change the additional property "Area"
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords("Area").Content = 2.7182
+
+		' Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord)
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private AddProperty()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		CogVerificationData mCurrentRecord = mInputDatabase.Fetch(0);
+
+		// Add additional property to the record with the name "Area" and a value of 3.1415
+		mCurrentRecord.Params.ExpectedOutputs.Add("Area", 3.1415);
+
+		// Change the additional property "Area"
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords["Area"].Content = 2.7182;
+		
+		// Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord);
+
+		mInputDatabase.Disconnect();
+	}	
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.Add(System.String,System.Double,System.Double)">
+            <summary>
+            Adds an expected output with the given key, an expectedValue and a range to the record.
+            </summary>
+            <param name="key">The key to be added to the Record's ExpectedOutput parameters. The key has to be unique</param>
+            <param name="expectedValue">The value to be assigned with the given key</param>
+            <param name="range">The range to be assigned with the given expectedValue. The range is used by the verifier during verification to allow the expectedValue to vary by +/- the range</param>
+            <exception cref="T:Exception">Thrown if the key is not unique.</exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+   
+	Private Sub AddProperty()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		Dim mCurrentRecord As CogVerificationData = mInputDatabase.Fetch(0)
+
+		' Add additional property to the record with the name "Area", a value of 3.1415 and a range of +-0.5
+		mCurrentRecord.Params.ExpectedOutputs.Add("Area", 3.1415, 0.5)
+
+		' Change the additional property "Area"
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords("Area").Content = 2.7182
+
+		' Change the range for the additional property "Area"
+		' WARNING: Works only if the additional property was created with a range
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords("Area").SubRecords(CogFieldNameConstants.RkRange).Content = 0.2
+
+		' Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord)
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private AddProperty()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		CogVerificationData mCurrentRecord = mInputDatabase.Fetch(0);
+
+		// Add additional property to the record with the name "Area", a value of 3.1415 and a range of +-0.5
+		mCurrentRecord.Params.ExpectedOutputs.Add("Area", 3.1415 , 0.5);
+
+		// Change the additional property "Area"
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords["Area"].Content = 2.7182;
+		
+		// Change the range for the additional property "Area"
+		// WARNING: Works only if the additional property was created with a range
+		mCurrentRecord.Params.ExpectedOutputs.Record.SubRecords["Area"].SubRecords[CogFieldNameConstants.RkRange].Content = 0.2;
+		
+		// Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord);
+
+		mInputDatabase.Disconnect();
+	}	
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.Remove(System.String)">
+            <summary>
+            Removes subrecord with the given key from this record.
+            </summary>
+            <param name="key">The key of the subrecord to remove</param>
+            <exception cref="T:Exception">Thrown if the key is null.</exception>
+            <exception cref="T:Exception">Thrown if the key is not found.</exception>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+   
+	Private Sub New()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		Dim mCurrentRecord As CogVerificationData = mInputDatabase.Fetch(0)
+
+		' Remove additional property "Area" from the record
+		mCurrentRecord.Params.ExpectedOutputs.Remove("Area")
+
+		' Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord)
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private RemoveProperty()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		CogVerificationData mCurrentRecord = mInputDatabase.Fetch(0);
+
+		// Remove additional property "Area" from the record
+		mCurrentRecord.Params.ExpectedOutputs.Remove("Area");
+
+		// Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord);
+
+		mInputDatabase.Disconnect();
+	}	
+</code>
+</example>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.AddExpectedBase(System.String,System.Object)">
+            <summary>
+            Adds an expected output with the given key and expectedValue.
+            </summary>
+            <param name="key">The key to be added to the Record's ExpectedOutput parameters. The key has to be unique</param>
+            <param name="expectedValue">The value to be assigned with the given key</param>
+            <exception cref="T:Exception">Thrown if the key is not unique.</exception>
+            <returns>Returns the created ICogRecord</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.Grade">
+            <summary>
+            Returns the value container object for the Grade collection.
+            </summary>
+            <example>
+<code lang="Visual Basic">
+	Imports Cognex.VisionPro
+	Imports Cognex.VisionPro.Database
+	Imports Cognex.VisionPro.Inspection
+
+	Private Sub SetGrade()
+		Dim mInputDatabase As New CogVerificationDatabase(New CogDatabaseDirectory("C:\SampleDatabase"))
+		mInputDatabase.Connect()
+
+		Dim mCurrentRecord As CogVerificationData = mInputDatabase.Fetch(0)
+
+		' The grade which will be added
+		Dim grade As String = "Good"
+
+		' Step one: add this grade to the metadata
+		' WARNING: If the metadata already contains this grade an exception will be thrown.
+		mInputDatabase.AddGrade(grade)
+
+		' Step two: set the record's grade
+		mCurrentRecord.Params.ExpectedOutputs.Grade.Value = grade
+
+		' Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord)
+
+		mInputDatabase.Disconnect()
+	End Sub
+</code>
+<code lang="C#">
+	using Cognex.VisionPro;
+	using Cognex.VisionPro.Database;
+	using Cognex.VisionPro.Inspection;
+
+	private SetGrade()
+	{
+		CogVerificationDatabase mInputDatabase = new CogVerificationDatabase(new CogDatabaseDirectory(@"C:\SampleDatabase"));
+		mInputDatabase.Connect();
+
+		CogVerificationData mCurrentRecord = mInputDatabase.Fetch(0);
+
+		// The grade which will be added
+		string grade = "Good";
+
+		// Step one: add this grade to the metadata
+		// WARNING: If the metadata already contains this grade an exception will be thrown.
+		mInputDatabase.AddGrade(grade);
+
+		// Step two: set the record's grade
+		mCurrentRecord.Params.ExpectedOutputs.Grade.Value = grade;
+
+		// Update the record in the database
+		mInputDatabase.Replace(mCurrentRecord);
+
+		mInputDatabase.Disconnect();
+	}	
+</code>
+</example>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedOutputsContainer.Keys">
+            <summary>
+            Gets all the expected keys added to this record.  
+            Returns null if there are no records.  
+            Note: this will always return at least string[] { "Grade" } since that was added to the records by default.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedRunStatusContainer">
+            <summary>
+            Class that contains the ExpectedRunStatus used by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedRunStatusContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedRunStatusContainer.ContainsSimpleResult">
+            <summary>
+            Method which returns whether or not the "SimpleResult" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "SimpleResult" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationParamsExpectedRunStatusContainer.SimpleResult">
+            <summary>
+            Returns the value container object for the SimpleResult collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationResultsContainer">
+            <summary>
+            Class that contains the results used and generated by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.ContainsOverallVerificationResult">
+            <summary>
+            Method which returns whether or not the "OverallVerificationResult" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "OverallVerificationResult" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.ContainsVerificationTimestamp">
+            <summary>
+            Method which returns whether or not the "VerificationTimestamp" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "VerificationTimestamp" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.ContainsVerifiedOutputs">
+            <summary>
+            Method which returns whether or not the "VerifiedOutputs" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "VerifiedOutputs" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.ContainsVerifiedRunStatus">
+            <summary>
+            Method which returns whether or not the "VerifiedRunStatus" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "VerifiedRunStatus" SubRecord.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.ContainsLastRunRecord">
+            <summary>
+            Method which returns whether or not the "LastRunRecord" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "LastRunRecord" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.OverallVerificationResult">
+            <summary>
+            Returns the value container object for the OverallVerificationResult collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.VerificationTimestamp">
+            <summary>
+            Returns the value container object for the VerificationTimestamp collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.VerifiedOutputs">
+            <summary>
+            Returns the container object for the VerifiedOutputs collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.VerifiedRunStatus">
+            <summary>
+            Returns the container object for the VerifiedRunStatus collection.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationResultsContainer.LastRunRecord">
+            <summary>
+            Returns the container object for the LastRunRecord collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputsContainer">
+            <summary>
+            Class that contains the VerifiedOutputs generated by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputsContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputsContainer.ContainsGrade">
+            <summary>
+            Method which returns whether or not the "Grade" SubRecord exists in the contained ICogRecord. Internal Use Only.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "Grade" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedOutputsContainer.Grade">
+            <summary>
+            Returns the value container object for the Grade collection. Internal Use Only.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationVerifiedRunStatusContainer">
+            <summary>
+            Class that contains the VerifiedRunStatus generated by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedRunStatusContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedRunStatusContainer.ContainsSimpleResult">
+            <summary>
+            Method which returns whether or not the "SimpleResult" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "SimpleResult" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedRunStatusContainer.SimpleResult">
+            <summary>
+            Returns the value container object for the SimpleResult collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationVerifiedSimpleResultContainer">
+            <summary>
+            Class that contains the VerifiedSimpleResult generated by the verification framework.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedSimpleResultContainer.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Constructor using an ICogRecord.
+            </summary>
+            <param name="record">The ICogRecord to be contained by this object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationVerifiedSimpleResultContainer.ContainsResultType">
+            <summary>
+            Method which returns whether or not the "ResultType" SubRecord exists in the contained ICogRecord.
+            </summary>
+            <returns>Returns true if the contained ICogRecord contains a "ResultType" SubRecord.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationVerifiedSimpleResultContainer.ResultType">
+            <summary>
+            Returns the value container object for the ResultType collection.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationStatistics">
+            <summary>
+            This class holds various statistics that are generated when verification is run.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfTotalCount">
+            <summary>
+            State flag for the TotalCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfMatchesCount">
+            <summary>
+            State flag for the MatchesCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfMismatchesCount">
+            <summary>
+            State flag for the MismatchesCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfTrueAcceptCount">
+            <summary>
+            State flag for the TrueAcceptCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfTrueRejectCount">
+            <summary>
+            State flag for the TrueRejectCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfFalseAcceptCount">
+            <summary>
+            State flag for the FalseAcceptCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfFalseRejectCount">
+            <summary>
+            State flag for the FalseRejectCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfUnknownCount">
+            <summary>
+            State flag for the UnknownCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfUndefinedCount">
+            <summary>
+            State flag for the UndefinedCount property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfStartTime">
+            <summary>
+            State flag for the StartTime property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfStopTime">
+            <summary>
+            State flag for the StopTime property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Inspection.CogVerificationStatistics.SfTotalTime">
+            <summary>
+            State flag for the TotalTime property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationStatistics.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationStatistics.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization Constructor.
+            </summary>
+            <param name="info">
+            Standard SerializationInfo argument.
+            </param>
+            <param name="context">
+            Standard StreamingContext argument.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationStatistics.Reset">
+            <summary>
+            Reset all the statistics to zero (or the equivalent).
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationStatistics.InitializeFrom(Cognex.VisionPro.Inspection.CogVerificationStatistics)">
+            <summary>
+            Initalize this object from the other object.  Internal Use Only.
+            </summary>
+            <param name="other">The other object that will provide the statistics values for this object.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.TotalCount">
+            <summary>
+            Get and set the total number of items verified.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.MatchesCount">
+            <summary>
+            Get and set the number of items that matched after verification has run.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.MismatchesCount">
+            <summary>
+            Get and set the number of items that mismatched after verification has run.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.TrueAcceptCount">
+            <summary>
+            Get and set the number of items that were categorized as true accept after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.TrueRejectCount">
+            <summary>
+            Get and set the number of items that were categorized as true reject after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.FalseAcceptCount">
+            <summary>
+            Get and set the number of items that were categorized as false accept after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.FalseRejectCount">
+            <summary>
+            Get and set the number of items that were categorized as false reject after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.UnknownCount">
+            <summary>
+            Get and set the number of items that were categorized as unknown after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.UndefinedCount">
+            <summary>
+            Get and set the number of items that were categorized as undefined after verification has run.
+            This statistics is only set when doing comparison with the SimpleResult item.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.StartTime">
+            <summary>
+            Get and set the time when the verification started.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.StopTime">
+            <summary>
+            Get and set the time when the verification stopped.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationStatistics.TotalTime">
+            <summary>
+            Get and set the total verification time.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationDataEventArgs">
+            <summary>
+            This EventArgs object is used by the CogVerificationData class hierarchy when a 
+            CogVerificationData object needs to be passed as part of firing an event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationDataEventArgs.#ctor(Cognex.VisionPro.Inspection.CogVerificationData)">
+            <summary>
+            Constructor that takes a data object.
+            </summary>
+            <param name="data">Data object to associate with this EventArgs object</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationDataEventArgs.Data">
+            <summary>
+            Get the CogVerificationData object associated with this EventArgs object.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationKeyEventArgs">
+            <summary>
+            This EventArgs object is used by the CogVerificationData class hierarchy when a 
+            key string needs to be passed as part of firing an event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationKeyEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor that takes a key string.
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationKeyEventArgs.Key">
+            <summary>
+            Get the string key associated with this EventArgs object.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategoryEventArgs">
+            <summary>
+            This EventArgs object is used by the CogVerificationData class hierarchy when a 
+            CogAnnotationCategory object needs to be passed as part of firing an event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategoryEventArgs.#ctor(Cognex.VisionPro.Inspection.CogVerificationAnnotationCategory)">
+            <summary>
+            Constructor that takes a CogAnnotationCategory object.
+            </summary>
+            <param name="category"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationAnnotationCategoryEventArgs.Category">
+            <summary>
+            Get the CogAnnotationCategory object associated with this EventArgs object.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerificationGradeEventArgs">
+            <summary>
+            This EventArgs object is used by the CogVerificationDatabase class when a 
+            grade needs to be passed as part of firing an event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerificationGradeEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor that takes a grade string.
+            </summary>
+            <param name="grade"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerificationGradeEventArgs.Grade">
+            <summary>
+            Get the string grade associated with this EventArgs object.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerifierRunCompletedEventArgs">
+            <summary>
+            This EventArg class is used when the verifier fires the RunCompleted event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierRunCompletedEventArgs.#ctor(System.Exception,System.Boolean,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="error">The exception if any was thrown during verification, null otherwise.</param>
+            <param name="cancelled">True if verification was cancelled, false otherwise.</param>
+            <param name="userState">Not used.</param>
+        </member>
+        <member name="T:Cognex.VisionPro.Inspection.CogVerifierRunProgressChangedEventArgs">
+            <summary>
+            This EventArg class is used when the verifier fires the RunProgress event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Inspection.CogVerifierRunProgressChangedEventArgs.#ctor(System.Int32,Cognex.VisionPro.Inspection.CogVerificationData,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="progressPercentage">The percentage the verifier has completed running (0-100).</param>
+            <param name="outputData">The output data object that was generated from the last iteration that was completed.</param>
+            <param name="userState">Not used.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Inspection.CogVerifierRunProgressChangedEventArgs.OutputData">
+            <summary>
+            Gets the CogVerificationData object associated with this EventArgs object.
+            </summary>
+        </member>
+    </members>
+</doc>

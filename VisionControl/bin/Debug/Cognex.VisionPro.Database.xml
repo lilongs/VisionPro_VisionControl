@@ -1,0 +1,1003 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro.Database</name>
+    </assembly>
+    <members>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseAddEventArgs">
+            <summary>
+            Arguments of ICogDatabase's Adding and Added events.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseAddEventArgs.Value">
+            <summary>
+            The record that is being, or has been added to the database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseAddEventArgs.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Construct the event arg object with the supplied value.
+            </summary>
+            <param name="value">
+            The record that is being, or has been added to the database.
+            </param>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseAddEventHandler">
+            <summary>
+            A delegate for ICogDatabase's Adding and Added events.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseRemoveEventArgs">
+            <summary>
+            Arguments of ICogDatabase's Removing and Removed events.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseRemoveEventArgs.Key">
+            <summary>
+            The key of the record that is being, or has been removed
+            from the database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseRemoveEventArgs.#ctor(System.String)">
+            <summary>
+            Construct the event arg object with the supplied key.
+            </summary>
+            <param name="key">
+            The key of the record that is being, or has been removed from
+            the database.
+            </param>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseRemoveEventHandler">
+            <summary>
+            A delegate for ICogDatabase's Removing and Removed events.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseReplaceEventArgs">
+            <summary>
+            Arguments of ICogDatabase's Replacing and Replaced events.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseReplaceEventArgs.Value">
+            <summary>
+            The record that is replacing or has just replaced an
+            existing record in the database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseReplaceEventArgs.#ctor(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Construct the event arg object with the supplied value.
+            </summary>
+            <param name="value">
+            The record that is replacing, or has just replaced an
+            existing record in the database.
+            </param>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseReplaceEventHandler">
+            <summary>
+            A delegate for ICogDatabase's Replacing and Replaced events.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.ICogDatabase">
+            <summary>
+            Interface that describes basic interactions with an
+            ICogRecord-centric database.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Connect">
+            <summary>
+            Connect to the database specified by the Name property.
+            Successfully connecting grants exclusive read and write
+            access to the database. This method is idempotent - you
+            may safely call it repeatedly.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to connect.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes Connected.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Disconnect">
+            <summary>
+            Disconnect from the database specified by the Name property.
+            Successfully disconnecting releases exclusive read and write
+            access to the database. This method is idempotent - you
+            may safely call it repeatedly.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to disconnect.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes Connected.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.GetCount">
+            <summary>
+            Get the number of items in the currently connected database.
+            </summary>
+            <returns>
+            The number of items in the currenlty connected database.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get the count of items.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.GetKeys">
+            <summary>
+            Generate an array of strings corresponding to the keys in the database.
+            </summary>
+            <returns>
+            An array of strings containing the keys in the database. This
+            can be an empty array if there are no items in the database.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get the keys in the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Add(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Add the supplied record to the database with a key defined
+            by the RecordKey field. This key must be unique.
+            </summary>
+            <param name="record">
+            The record to be added to the database. The key, specified
+            by the RecordKey field, must be unique.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, record, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if the key is not unique.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to add record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.AddingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.AddedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Remove(System.String)">
+            <summary>
+            Remove the specified item from the database.
+            </summary>
+            <param name="key">
+            This key specifies the item to remove from the database.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, key, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if there is no item in the database with this key.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.RemovingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.RemovedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Remove(System.Int32)">
+            <summary>
+            Remove the specified item from the database.
+            </summary>
+            <param name="index">
+            This index specifies the item to remove from the database.
+            Indexing is with respect to the list of keys returned by
+            the GetKeys method.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the input argument, index, is less than zero or
+            greater than or equal to the value returned by the
+            GetCount method.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.RemovingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.RemovedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Fetch(System.String)">
+            <summary>
+            Create an ICogRecord that duplicates the item specified
+            by the supplied key. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <returns>
+            A newly created instance of the requested database item.
+            </returns>
+            <param name="key">
+            This key specifies the item to fetch from the database.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, key, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if there is no item in the database with this key.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to fetch the record.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Fetch(System.Int32)">
+            <summary>
+            Create an ICogRecord that duplicates the item specified
+            by the supplied index. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <returns>
+            A newly created instance of the requested database item.
+            </returns>
+            <param name="index">
+            This index specifies the item to fetch from the database.
+            Indexing is with respect to the list of keys returned by
+            the GetKeys method.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the input argument, index, is less than zero or
+            greater than or equal to the value returned by the
+            GetCount method.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to fetch the record.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Replace(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Find the database item whose key matches the RecordKey of the
+            supplied ICogRecord. Replace that database item with
+            (the contents of) the supplied ICogRecord.
+            </summary>
+            <param name="record">
+            The replacement ICogRecord.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, record, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if the specified key is not found.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to add record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.ReplacingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.ReplacedEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.ICogDatabase.Clear">
+            <summary>
+            Remove any and all database items. Does not affect the Metadata
+            property.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove a record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.ClearingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.ClearedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the value returned
+            by GetCount.
+            </event>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Clearing">
+            <summary>
+            Event that is raised at the start of a call to Clear.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Cleared">
+            <summary>
+            Event that is raised at the end of a call to Clear.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Adding">
+            <summary>
+            Event that is raised at the start of a call to Add.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Added">
+            <summary>
+            Event that is raised at the end of a call to Add.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Removing">
+            <summary>
+            Event that is raised at the start of a call to Remove.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Removed">
+            <summary>
+            Event that is raised at the end of a call to Remove.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Replacing">
+            <summary>
+            Event that is raised at the start of a call to Replace.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.ICogDatabase.Replaced">
+            <summary>
+            Event that is raised at the end of a call to Replace.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.ICogDatabase.Name">
+            <summary>
+            Gets or sets the name of this database. This must be set to
+            the desired value before calling Connect. Attempting to
+            set this when Connected is true will cause an exception to
+            be thrown.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if you attempt to set Name while Connected is true.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.ICogDatabase.Metadata">
+            <summary>
+            Gets or sets the metadata associated with this database.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.ICogDatabase.Connected">
+            <summary>
+            Is this object connected to a specific database?
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+        </member>
+        <member name="T:Cognex.VisionPro.Database.CogDatabaseDirectory">
+            <summary>
+            This class provides a file and directory-based implementation
+            of the ICogDatabase interface.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseDirectory.SfName">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by Name may have changed.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseDirectory.SfConnected">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by Connected may have changed.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseDirectory.SfGetCount">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by GetCount may have changed.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Database.CogDatabaseDirectory.SfGetKeys">
+            <summary>
+            This bit will be set in the EventArgs of a Changed event every
+            time the value returned by GetKeys may have changed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.#ctor">
+            <summary>
+            Construct a new instance of the CogDatabaseDirectory class.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.#ctor(System.String)">
+            <summary>
+            Construct a new instance of the CogDatabaseDirectory class.
+            Set the Name property to the supplied value, and then
+            attempt to connect to that database.
+            </summary>
+            <param name="name">
+            The desired database name. This must be the path of
+            the intended database directory, e.g. "C:\\MyDatabase".
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to connect.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.#ctor(Cognex.VisionPro.Database.CogDatabaseDirectory)">
+            <summary>
+            Construct a new instance of the CogDatabaseDirectory class
+            with the Name field set to match that of the supplied argument.
+            Note that the resulting CogDatabaseDirectory object is
+            not initially connected, regardless of the state of the
+            argument.
+            </summary>
+            <param name="other">
+            The CogDatabaseDirectory whose Name property is to be copied.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor for CogDatabaseDirectory. Note that,
+            as with the copy constructor, the resultant CogDatabaseDirectory
+            object is not initially connected.
+            </summary>
+            <param name="info">
+            Standard SerializationInfo argument.
+            </param>
+            <param name="context">
+            Standard StreamingContext argument.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Connect">
+            <summary>
+            Connect to the database specified by the Name property.
+            Successfully connecting grants exclusive read and write
+            access to the database. This method is idempotent - you
+            may safely call it repeatedly.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to connect.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes Connected.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Disconnect">
+            <summary>
+            Disconnect from the database specified by the Name property.
+            Successfully disconnecting releases exclusive read and write
+            access to the database. This method is idempotent - you
+            may safely call it repeatedly.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to disconnect.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes Connected.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.GetCount">
+            <summary>
+            Get the number of items in the currently connected database.
+            </summary>
+            <returns>
+            The number of items in the currenlty connected database.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get the count of items.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.GetKeys">
+            <summary>
+            Generate an array of strings corresponding to the keys in the database.
+            </summary>
+            <returns>
+            An array of strings containing the keys in the database. This
+            can be an empty array if there are no items in the database.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get the keys in the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.GetKeysNoSort">
+            <summary>
+            Generate an array of strings corresponding to the keys in the database.
+            </summary>
+            <returns>
+            An array of strings containing the keys in the database. This
+            can be an empty array if there are no items in the database.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get the keys in the database.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnAdding(Cognex.VisionPro.Database.CogDatabaseAddEventArgs)">
+            <summary>
+            Raise the Adding event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnAdded(Cognex.VisionPro.Database.CogDatabaseAddEventArgs)">
+            <summary>
+            Raise the Added event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnReplacing(Cognex.VisionPro.Database.CogDatabaseReplaceEventArgs)">
+            <summary>
+            Raise the Replacing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnReplaced(Cognex.VisionPro.Database.CogDatabaseReplaceEventArgs)">
+            <summary>
+            Raise the Replaced event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnRemoving(Cognex.VisionPro.Database.CogDatabaseRemoveEventArgs)">
+            <summary>
+            Raise the Removing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnRemoved(Cognex.VisionPro.Database.CogDatabaseRemoveEventArgs)">
+            <summary>
+            Raise the Removed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnClearing(System.EventArgs)">
+            <summary>
+            Raise the Clearing event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.OnCleared(System.EventArgs)">
+            <summary>
+            Raise the Cleared event. 
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Add(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Add the supplied record to the database with a key defined
+            by the RecordKey field. This key must be unique.
+            </summary>
+            <param name="record">
+            The record to be added to the database. The key, specified
+            by the RecordKey field, must be unique.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, record, is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the key is not unique.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to add record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.AddingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.AddedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Remove(System.String)">
+            <summary>
+            Remove the specified item from the database.
+            </summary>
+            <param name="key">
+            This key specifies the item to remove from the database.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, key, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if there is no item in the database with this key.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.RemovingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.RemovedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Remove(System.Int32)">
+            <summary>
+            Remove the specified item from the database.
+            </summary>
+            <param name="index">
+            This index specifies the item to remove from the database.
+            Indexing is with respect to the list of keys returned by
+            the GetKeys method.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the input argument, index, is less than zero or
+            greater than or equal to the value returned by the
+            GetCount method.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.RemovingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.RemovedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the values returned
+            by GetCount and GetKeys.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Fetch(System.String)">
+            <summary>
+            Create an ICogRecord that duplicates the item specified
+            by the supplied key. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <returns>
+            A newly created instance of the requested database item.
+            </returns>
+            <param name="key">
+            This key specifies the item to fetch from the database.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, key, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if there is no item in the database with this key.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to fetch the record.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Fetch(System.Int32)">
+            <summary>
+            Create an ICogRecord that duplicates the item specified
+            by the supplied index. Note that a new ICogRecord is
+            created every time this method is called.
+            </summary>
+            <returns>
+            A newly created instance of the requested database item.
+            </returns>
+            <param name="index">
+            This index specifies the item to fetch from the database.
+            Indexing is with respect to the list of keys returned by
+            the GetKeys method.
+            </param>    
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the input argument, index, is less than zero or
+            greater than or equal to the value returned by the
+            GetCount method.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to fetch the record.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Replace(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Find the database item whose key matches the RecordKey of the
+            supplied ICogRecord. Replace that database item with
+            (the contents of) the supplied ICogRecord.
+            </summary>
+            <param name="record">
+            The replacement ICogRecord.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input argument, record, is null.
+            </exception>
+            <exception cref="T:Syste.ArgumentException">
+            Thrown if the specified key is not found.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to add record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.ReplacingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.ReplacedEvent">
+            Fires at the end of a call to this method.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Clear">
+            <summary>
+            Remove any and all database items. Does not affect the Metadata
+            property.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to remove a record.
+            </exception>
+            <event cref="E:Cognex.VisionPro.Database.ClearingEvent">
+            Fires at the start of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.Database.ClearedEvent">
+            Fires at the end of a call to this method.
+            </event>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this method changes the value returned
+            by GetCount.
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.GetEnumerator">
+            <summary>
+            Create a strongly typed enumerator to facilitate
+            iterating through the items in this database. Note that
+            enumerators are fragile - externally adding or removing items
+            from this database will invalidate the enumerator. Also note
+            that modifying an ICogRecord returned by (the Current property of)
+            this enumerator will have absolutely no affect on the database
+            since it is a freshly created copy of the database item, just
+            as with the Fetch method.
+            </summary>
+            <returns>
+            An enumerator whose Current property is of type ICogRecord.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Create an enumerator to facilitate iterating through
+            the items in this database. Note that enumerators
+            are fragile - externally adding or removing items
+            from this database will invalidate the enumerator. Also note
+            that modifying an ICogRecord returned by (the Current property of)
+            this enumerator will have absolutely no affect on the database
+            since it is a freshly created copy of the database item, just
+            as with the Fetch method.
+            </summary>
+            <returns>
+            An enumerator whose Current property is of type Object.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if not currently connected.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Dispose">
+            <summary>
+            Dispose of this CogDatabaseDirectory object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Dispose(System.Boolean)">
+            <summary>
+            Dispose of this object.
+            </summary>
+            <param name="disposing">
+            If calling this method from the public Dispose method,
+            set this argument to true. If calling this method from
+            the finalizer, set this to false.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Database.CogDatabaseDirectory.Finalize">
+            <summary>
+            Finalize this CogDatabaseDirectory object.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Clearing">
+            <summary>
+            Raised before a database is cleared.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Cleared">
+            <summary>
+            Raised after a database is cleared.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Adding">
+            <summary>
+            Raised before an item is added to a database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Added">
+            <summary>
+            Raised after an item is added to a database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Removing">
+            <summary>
+            Raised before an item is removed from a database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Removed">
+            <summary>
+            Raised after an item is removed from a database.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Replacing">
+            <summary>
+            Raised before an item in a database is replaced.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.Database.CogDatabaseDirectory.Replaced">
+            <summary>
+            Raised after an item in a database has been replaced.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.CogDatabaseDirectory.Name">
+            <summary>
+            Gets or sets the name of this database. This will be
+            the path of the desired database directory,
+            e.g. "C:\\MyDatabase". This must be set to
+            the desired value before calling Connect. Attempting to
+            set this when Connected is true will cause an exception to
+            be thrown.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if you attempt to set Name while Connected is true.
+            </exception>
+            <event cref="E:Cognex.VisionPro.ChangedEvent">
+            Fires when this property changes.
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.CogDatabaseDirectory.Connected">
+            <summary>
+            Is this object connected to a specific database?
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.Database.CogDatabaseDirectory.Metadata">
+            <summary>
+            Gets or sets the metadata associated with this database.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            Thrown if this object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if unable to get or set metadata.
+            </exception>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro.QuickBuild.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList">
+            <summary>
+            CogIODeviceList holds all I/O device objects that can be found
+            in the system. However, this class can be used to add, remove 
+            or return a reference to the device object. See CogJobManager 
+            IODeviceList for getting references to devices in the system.
+            
+            Note: CogJobManger should only instantiate this class.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.SfAddDiscreteDevice">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.SfRemoveDiscreteDevice">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.SfAddTCPIPDevice">
+            <summary>Add TCPIP device change flag</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.SfRemoveTCPIPDevice">
+            <summary>Remove TCPIP device change flag</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.discreteList">
+            <summary>
+            Contains a list of discrete I/O devices.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.serialList">
+            <summary>
+            Contains a list of serial devices.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.ipList">
+            <summary>
+            Contains a list of TCP/IP devices.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.otherList">
+            <summary>
+            Contains a list of other I/O devices.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.#ctor">
+            <summary>
+            Initializes a new instance of CogIODeviceList object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of CogIODeviceList object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.GetDiscreteDevice(System.Int32)">
+            <summary>
+            Returns the discrete device object indexed by listIndex
+            </summary>
+            <param name="listIndex">ArrayList index number. Starts from 0.</param>
+            <returns>Returns the discrete device object indexed by listIndex.
+            Returns null if the match cannot be found.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If listIndex is out of range.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.GetDiscreteDevice(System.String,System.Int32)">
+            <summary>
+            Returns the discrete device object that matches deviceTypename and
+            boardIndex.
+            </summary>
+            <param name="deviceTypeName">Name of a valid discrete device type</param>
+            <param name="boardIndex">Board index number. Starts from 0</param>
+            <returns>Returns the reference to the CogIODiscreteDevice class
+            derived object that matches deviceTypeName and boardIndex.
+            Returns null if the match cannot be found.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If boardIndex is out of range.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            If deviceTypeName is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            If deviceTypeName is empty.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.AddDiscreteDevice(System.String,System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.AddDiscreteDevice(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.RemoveDiscreteDevice(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice)">
+            <summary>
+            Remove a matching discrete device object from the list
+            </summary>
+            <param name="discrete">An instance of the CogIODiscreteDevice
+            derived class</param>
+            <exception cref="T:System.ArgumentException">
+            If discrete is not in the list.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.RemoveDiscreteDevice(System.String,System.Int32)">
+            <summary>
+            Remove the device object that matches both deviceTypeName and
+            boardIndex.
+            </summary>
+            <param name="deviceTypeName">Name of a valid device type</param>
+            <param name="boardIndex">Board index which starts from 0</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If boardIndex is out of range.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            If deviceTypeName is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            If deviceTypeName is empty.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.IsAnotherDeviceNamePresent(System.String,System.Int32)">
+            <summary>
+            Cognex Internal Use Only 
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.FindAllDiscreteDevices">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.FindAllDevices">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.AddTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.AddTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.AddTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.RemoveTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.RemoveTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.IsAnotherDevicePresent(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.IsAnotherDevicePresent(Cognex.VisionPro.QuickBuild.IO.CogIODeviceType,System.Object[])">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.GetTCPIPDevice(System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.GetTCPIPDevice(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.DiscreteDeviceCount">
+            <summary>
+            Returns the total discrete device count in the list.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.DiscreteDevices">
+            <summary>
+            Retrieves an array of discrete devices that are in the list.
+            </summary>
+            <returns>
+            An array of discrete devices devices in the list.
+            </returns>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODeviceList.TCPIPDevices">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.ICogIOTCPIP">
+            <summary>
+            Use this interface to receive data from a TCP/IP device defined by Host and PortNumber.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventHandler">
+            <summary>
+            Delegate for the message received or sent event.
+            </summary>
+            <remarks>
+    		Use this delegate to define a handler for stream I/O.
+    </remarks><code lang="C#">
+	public Form1()
+	{
+		InitializeComponent();
+		cogJobManagerEdit1.Subject = CogSerializer.LoadObjectFromFile(Environment.GetEnvironmentVariable("VPRO_ROOT") + @"\samples\programming\tcpip\QBInputSample.vpp") as CogJobManager;
+		cogJobManagerEdit1.Subject.IOEnable = true;
+		QBdevice = cogJobManagerEdit1.Subject.StreamInput(Dns.GetHostName(), 5001, false);
+		QBdevice.MessageReceived += new CogIOStreamMessageEventHandler(QBdevice_MessageReceived);
+	}
+
+
+	void QBdevice_MessageReceived(object sender, CogIOStreamMessageEventArgs eventArgs)
+	{
+		String msg = eventArgs.DecodedMessage;
+		if (msg == "RunOnce")
+			cogJobManagerEdit1.Subject.Run();
+	}
+    	</code><seealso/>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventArgs">
+            <summary>
+            Event args object for the message.
+            </summary>
+            <remarks>
+    		<para>
+    			The <see cref="T:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventHandler">message event handler</see>
+    			gets the <see cref="P:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventArgs.DecodedMessage"/>
+    		</para>
+    </remarks><example>
+    	<para>
+    		For an example of using <see cref="T:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventArgs"/>
+    		see the sample code in %VPRO_ROOT%\Samples\Programming\TCPIP\QBInputSample,
+    	</para>
+    </example><seealso/>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="decodedMessage">message contains the decoded message.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventArgs.DecodedMessage">
+            <summary>
+            The unicode string was produced by feeding the bytes through the associated stream device’s specified decoding scheme (e.g. UTF16, UTF8, ASCII, or RAW8BIT).
+            </summary>
+            <remarks>
+    	Use this property in the <see cref="T:Cognex.VisionPro.QuickBuild.CogIOStreamMessageEventHandler">message event handler</see>.
+   </remarks><example>
+    	<para>
+    		See the sample code in %VPRO_ROOT%\Samples\Programming\TCPIP\QBInputSample,
+    	</para>
+    	<code lang="C#">
+	public Form1()
+	{
+		InitializeComponent();
+		cogJobManagerEdit1.Subject = CogSerializer.LoadObjectFromFile(Environment.GetEnvironmentVariable("VPRO_ROOT") + @"\samples\programming\tcpip\QBInputSample.vpp") as CogJobManager;
+		cogJobManagerEdit1.Subject.IOEnable = true;
+		QBdevice = cogJobManagerEdit1.Subject.StreamInput(Dns.GetHostName(), 5001, false);
+		QBdevice.MessageReceived += new CogIOStreamMessageEventHandler(QBdevice_MessageReceived);
+	}
+
+
+	void QBdevice_MessageReceived(object sender, CogIOStreamMessageEventArgs eventArgs)
+	{
+		String msg = eventArgs.DecodedMessage;
+		if (msg == "RunOnce")
+			cogJobManagerEdit1.Subject.Run();
+	}
+    	</code>
+    </example><seealso/>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInputCommand">
+            <summary>
+            List of input commands that the user is able to set for each job.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputCommand.None">
+            <summary>
+            Used to indicate no input command. Used during initialization
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputCommand.ClearToSend">
+            <summary>
+            Used to control output. The system cannot output the results
+            to the output device unless a designated signal arrives.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputCommand.RunJobOnce">
+            <summary>
+            Run a job once when a designated signal arrives.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputCommand.StopJob">
+            <summary>
+            Stop a job when a designated signal arrives.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8501">
+            <summary>
+            Cognex frame grabber 8501 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8500Le">
+            <summary>
+            Cognex frame grabber 8500Le device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8504">
+            <summary>
+            Cognex frame grabber 8504 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8504e">
+            <summary>
+            Cognex frame grabber 8504e device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8601">
+            <summary>
+            Cognex frame grabber 8601 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8602">
+            <summary>
+            Cognex frame grabber 8602 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8602e">
+            <summary>
+            Cognex frame grabber 8602 PCI Express device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.PCIDIO24">
+            <summary>
+            Measurement Computing Board device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.PCIDIO24S">
+            <summary>
+            Measurement Computing Board device type with the surge protection
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.USB1024LS">
+            <summary>
+            USB Port Measurement Computing Board device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.TCPIP">
+            <summary>
+            TCP/IP communication protocol
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8511">
+            <summary>
+            Cognex frame grabber 8511 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8511e">
+            <summary>
+            Cognex frame grabber 8511e device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8514">
+            <summary>
+            Cognex frame grabber 8514 device type
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODeviceType.Cognex8514e">
+            <summary>
+            Cognex frame grabber 8514e device type
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIODeviceName.DeviceTypeName(Cognex.VisionPro.QuickBuild.IO.CogIODeviceType)">
+            <summary>
+            Converts CogIOCommunicationType to the matching string
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODevice">
+            <summary>
+            All I/O devices must be derived from CogIODevice. 
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODevice.SfDeviceName">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODevice.SfIsDeviceOpen">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODevice.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODevice.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODevice.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODevice.Open">
+            <summary>
+            Initialize the derived device to its initial states. 
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODevice.Close">
+            <summary>
+            This function should be called when the device is no longer used.
+            The override function must close a socket if it is an IP device,
+            close the serial port, or disable discrete I/O lines. All worker
+            threads that are used to send or read data must be stopped.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODevice.Write(Cognex.VisionPro.QuickBuild.IO.CogIOOutputData)">
+            <summary>
+            A CogIODevice derived class must implement Write. The derived
+            classes are responsible for translating the input, 
+            and sending the translated output to the physical device.
+            </summary>
+            <param name="writeData">writeData contains the data to be
+            written to the device.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODevice.DeviceName">
+            <summary>
+            Return the name that characterizes the instance of CogIODevice object.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODevice.IsDeviceOpen">
+            <summary>
+            Returns true if the device is open; otherwise, returns false.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODevice.Enabled">
+            <summary>
+            The Enabled property options allows I/O to be blocked at the lowest
+            possible level.  When disabled, the device does not transmit outputs
+            and ignores any inputs.  When enabled, the device behaves normally.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogMCBAPI.CreateMccBoard(System.Int32)">
+            <summary>
+            Reads "Measurement Computing" section of VisionPro.ini to retrieve the
+            strong assembly name for the Measurement Computing "Universal
+            Library".  Once the assembly is loaded successfully using this
+            assembly name, this method creates an instance of MccBoard and returns
+            a reference to it.  The caller may then use this object to access
+            properties and methods via reflection. Cognex internal use only.
+            </summary>
+            <param name="brdNum">Zero based index of the desired MCC board.</param>
+            <returns>Reference to the MccDaq object.</returns>
+            <exception cref="T:System.Exception">
+            Thrown when "Measurement Computing" section cannot be located
+            within VisionPro.ini.
+            </exception>
+            <exception cref="T:System.IO.FileNotFoundException">
+            Thrown if MccDaq.dll fails to load.
+            </exception>
+            <exception cref="T:System.Exception">
+            Thrown if a valid board with the specified number is not created.
+            within VisionPro.ini.
+            </exception> 
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants">
+            <summary>
+            The CogIOMCBPortNumberConstants are used to refer to a specific
+            port on the Measurement Computing PCI-DIO24/S board. There are
+            four ports: A, B, CL, and CH. Ports A and B are each 8 bits, while
+            ports CL and CH are each 4 bits.
+            If you are using the 8-line version of the Measurement Computing PCI I/O 
+            board, its lines are presented through ports CL and CH (lines 16 through 23). 
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants.PortA">
+            <summary>
+            Lines 0 through 7. May be configured as either input or output.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants.PortB">
+            <summary>
+            Lines 8 through 15. May be configured as either input or output.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants.PortCL">
+            <summary>
+            Lines 16 through 19. May be configured as either input or output.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants.PortCH">
+            <summary>
+            Lines 20 through 23. May be configured as either input or output.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortDirectionConstants">
+            <summary>
+            Each port on the Measurement Computing PCI-DIO24/S board may be
+            configured for either input or output. This enumeration helps
+            you specify which.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortDirectionConstants.Undefined">
+            <summary>
+            The direction of the port has not been specified.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortDirectionConstants.Output">
+            <summary>
+            As output, the state of a line may be set by the user.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortDirectionConstants.Input">
+            <summary>
+            As input, the state of a line may be read by the user. 
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOMCB">
+            <summary>
+            This class encapsulates all characteristics of a single
+            instance of the Measurement Computing PCI-DIO24/S digital
+            input/output board.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice">
+            <summary>
+            Base class for all Cognex discrete I/O.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.SfIsHeartbeatActive">
+            <summary>Heartbeat active changed flag</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.#ctor(System.String,System.Int32)">
+            <summary>
+            Base class for all Cognex frame grabber's discrete I/O.
+            </summary>
+            <param name="deviceName">Name of Cognex I/O device.</param>
+            <param name="deviceIndex">Index of this discrete I/O
+            device object. An index starts from 0.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.IsInputAsserted(System.Int32)">
+            <summary>
+            Reads the current state of an input line.
+            </summary>
+            <param name="line">The line number to read.</param>
+            <returns>true if line is asserted as defined by the polarity of the line.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.GetInputDelegate(System.Int32)">
+            <summary>
+            Get the input delegate associated with a particular input line
+            </summary>
+            <param name="line">The input line of interest</param>
+            <returns>The delegate function for the input line</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.GetCallDelegate(System.Int32)">
+            <summary>
+            Used to verify whether a delegate function is assigned to line.
+            </summary>
+            <param name="line">The input line of interest</param>
+            <returns>True if a delegate function is assigned to line</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.SetCallDelegate(System.Int32,System.Boolean)">
+            <summary>
+            Turn on or off a delegate function call assigned to line.
+            You can assign delegate functions to all input lines
+            at the beginning, and control an input line change notification
+            using this function.
+            </summary>
+            <param name="line">The input line of interest</param>
+            <param name="callit">The delegate function will not be called 
+            when callit is to set false.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.WriteSyncPulse(System.Int32)">
+            <summary>
+            Output lines are not thread-safe. You must make sure that
+            your code using this method is thread-safe.
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.SetLinePolarity(System.Int32,Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity,System.Boolean)">
+            <summary>
+            Sets the polarity of line from either low to high or high to low. 
+            </summary>
+            <param name="line">an I/O line</param>
+            <param name="polarity">CogIOLinePolarity.LowToHigh or CogIOLinePolarity.HighToLow</param>
+            <param name="input">True if line is an input line</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.GetLinePolarity(System.Int32,System.Boolean)">
+            <summary>
+            Returns polarity of line. When input is true, line is an input line number; otherwise, it is an output line number.
+            </summary>
+            <param name="line">an I/O line</param>
+            <param name="input">True if line is an input line</param>
+            <returns>CogIOLinePolarity.LowToHigh or CogIOLinePolarity.HighToLow</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.ResetAllWriteActivityCounter">
+            <summary>
+            Cognex internal use only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.GetCurrentActivityCount(System.Int32)">
+            <summary>
+            Cognex internal use only
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.DeviceIndex">
+            <summary>
+            Return the index number of CogIODevice object.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.MonitorInputs">
+            <summary>
+            Controls whether the device is actively monitoring the input lines.  When set to
+            false, the delegate will not be called and IsInputAsserted will return stale data.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.IOLineChanged">
+            <summary>
+            Cognex internal use only
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.InputDelegateFn">
+            <summary>
+            Prototype for a delegate function to be called when an input line changes state.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.IndexedInputDelegate">
+            <summary>
+            This class exists solely to allow accessing input delegates 
+            via an indexed property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDevice.CogIOLineStateChangeEventHandler">
+            <summary>
+            Cognex internal use only
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SfLineEnabled">
+            <summary> Line Enabled state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SfLinePolarity">
+            <summary> Line Polarity state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SfLineAlias">
+            <summary> Line Alias state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SfLinePulseWidth">
+            <summary> Line Pulse Width state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SfPortDirection">
+            <summary> Port Direction state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.#ctor(System.String,System.Int32)">
+            <summary>
+            Create an instance of the CogIOMCB class with the specified
+            device name and device index. Note that you may only create
+            at most one instance of this class for a particular device
+            index.
+            </summary>
+            <param name="deviceName">
+            A string that identifies this device, e.g. "PCI-DIO24/S".
+            May not be null.</param>
+            <param name="deviceIndex">
+            The zero based index for this board. If you have only a single
+            PCI-DIO24/S board, this should be zero. May not be less
+            than zero.</param>
+            <exception cref="T:System.ArgumentNullException">
+            If the deviceName argument is null.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the deviceIndex argument is less than zero.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If an instance of CogIOMCB already exists with this device index.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.#ctor(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogMCBAPIBase,System.Int32)">
+            <summary>
+            Cognex Internal Use Only
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+            <param name="info">
+            The SerializatonInfo argument.
+            </param>
+            <param name="ctxt">
+            The StreamingContext argument.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Dispose">
+            <summary>
+            Release associated resources and mark this object as disposed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Finalize">
+            <summary>
+            Finalize. Ensures that this device is closed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetLineEnabled(System.Int32)">
+            <summary>
+            Is the specified line on this device currently enabled. If
+            the answer is false, you will be prevented from writing to
+            or reading from this line.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            Whether or not the specified line is enabled.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetLineEnabled(System.Int32,System.Boolean)">
+            <summary>
+            Specify whether or not the indicated line on this device
+            is enabled. If you set this to false for a given line,
+            you will be prevented from writing to or reading from that
+            line. If a heartbeat is already running on this line, it
+            will not be affected, but you will be prevented from
+            restarting it once you have stopped it.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <param name="enabled">
+            The desired state of the line.
+            </param>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when a line's Enabled value is changed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetLineAlias(System.Int32)">
+            <summary>
+            Get the alias or name associated with the specified
+            line on this device. This characteristic is provided
+            solely as a convenience to the user and has no impact
+            upon the operation of this device.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            The alias or name associated with the specified line on this device.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetLineAlias(System.Int32,System.String)">
+            <summary>
+            Set the alias or name associated with the specified
+            line on this device. This characteristic is provided
+            solely as a convenience to the user and has not impact
+            upon the operation of this device.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <param name="name">
+            The desired alias.
+            </param>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when a line's Alias value is changed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetLinePulseWidth(System.Int32)">
+            <summary>
+            Get the pulse width, in milliseconds, for the specified line
+            on this device. This parameter is used by the WriteSyncPulse().
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            The pulse width, in milliseconds, for the specified line on this
+            device.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetLinePulseWidth(System.Int32,System.Int32)">
+            <summary>
+            Set the pulse width, in milliseconds, for the specified line
+            on this device. This parameter is used by the WriteSyncPulse().
+            If you set this to a new value while a heartbeat is already 
+            running on this line, the heartbeat will not be affected. 
+            If you then stopped and subsequently restarted the heartbeat 
+            on this line, it would reflect this new pulse width value.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <param name="pulseWidth">
+            The desired pulse width, in milliseconds.
+            </param>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when a line's PulseWidth value is changed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetLinePolarity(System.Int32)">
+            <summary>
+            Get the polarity for the specified line on this device. With
+            possible values of CogIOLinePolarity.LowToHigh or
+            CogIOLinePolarity.HighToLow, this parameter is used
+            by the Write(), SetValue(), and WriteSyncPulse() methods.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            The polarity for the specified line on this device. May be
+            either CogIOLinePolarity.LowToHigh or
+            CogIOLinePolarity.HighToLow.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetLinePolarity(System.Int32,Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity)">
+            <summary>
+            Set the polarity for the specified line on this device. May
+            be either CogIOLinePolarity.LowToHigh or
+            CogIOLinePolarity.HighToLow. This parameter is used by the
+            Write(), SetValue(), and WriteSyncPulse() methods.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <param name="polarity">
+            The desired line polarity.
+            </param>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when a line's Polarity value is changed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetPortFromLine(System.Int32)">
+            <summary>
+            Get the identifier of the port that is associated with the
+            specified line on this device.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            The port associated with the specified line. Possible values are
+            CogIOMCBPortNumberConstants.PortA, .PortB, .PortCL, and .PortCH.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetPortDirection(Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants)">
+            <summary>
+            Get the currently configured direction for the specified port.
+            </summary>
+            <param name="port">
+            The port of interest (CogIOMCBPortNumberConstants.A, .B, .CL, or .CH).
+            </param>
+            <returns>
+            The currently configured direction for the specified port. May be
+            CogIOMCBPortDirectionConstants.Undefined, or
+            CogIOMCBPortDirectionConstants.Output, or
+            CogIOMCBPortDirectionConstants.Input.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetPortDirection(Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortNumberConstants,Cognex.VisionPro.QuickBuild.IO.CogIOMCBPortDirectionConstants)">
+            <summary>
+            Set the direction for the specified port. May be set to
+            CogIOMCBPortDirectionConstants.Output, or
+            CogIOMCBPortDirectionConstants.Input, or
+            CogIOMCBPortDirectionConstants.Undefined.
+            </summary>
+            <param name="port">
+            The port of interest (CogIOMCBPortNumberConstants.PortA, .PortB,
+            .PortCL, or .PortCH).
+            </param>
+            <param name="direction">
+            The desired direction (CogIOMCBPortDirectionConstants.Output or
+            .Input).
+            </param>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when a port's Direction value is changed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Open">
+            <summary>
+            Open the device. Each CogIOMCB object may be associated
+            with one actual MeasurementComputing PCI-DIO24/S board.
+            Calling this method causes the underlying hardware connection
+            to be established and the hardware to be initialized. Upon
+            successfully calling this method, the IsDeviceOpen property
+            will be true.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when the device is successfully opened.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If a CogIOMCB device with this index is already open.
+            </exception>
+            <exception cref="T:System.Exception">
+            If the "Measurement Computing" section of the VisionPro.ini
+            configuration file cannot be located.
+            </exception>
+            <exception cref="T:System.IO.FileNotFoundException">
+            If the Measurement Computing  MccDaq.dll fails to load.
+            </exception>
+            <exception cref="T:System.Exception">
+            If a valid board with the specified index is not created.
+            </exception> 
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Write(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteData)">
+            <summary>
+            Set the state of zero or more output lines as described
+            by the supplied argument. This argument is a data structure
+            holding a set of line/value pairs. This method steps through
+            this set of data, setting in turn each specified line to the
+            specified state.
+            </summary>
+            <param name="discreteData">
+            A CogIODiscreteData object that describes what values
+            are to be written to what lines on this device.
+            May not be null.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            If the discreteData argument is null.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If this device is not currently open.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If a line argument is less than zero or greater than 23.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If a specified line is not currently enabled.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the port associated with a specified line is not
+            currently configured for output.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If an error is encountered while writing to an individual line.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Write(Cognex.VisionPro.QuickBuild.IO.CogIOOutputData)">
+            <summary>
+            Set the state of zero or more output lines as described
+            by the supplied argument. This argument is a data structure
+            holding a set of line/value pairs. This method steps through
+            this set of data, setting in turn each specified line to the
+            specified state.
+            </summary>
+            <param name="writeData">
+            A CogIOOutputData base class reference to a CogIODiscreteData
+            object. This object describes what values are to be written
+            to what lines on this device. May not be null, and must be
+            capable of being cast to a CogIODiscreteData object.</param>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            If the writeData argument is null.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If this device is not currently open.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If a line argument is less than zero or greater than 23.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If a specified line is not currently enabled.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the port associated with a specified line is not
+            currently configured for output.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If an error is encountered while writing to an individual line.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.Close">
+            <summary>
+            Close the device. This releases the underlying hardware, making
+            it available for use later or by another thread. In general,
+            only call this when you are finished using the device, such as
+            when your application is about to exit.
+            </summary>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            Fires when the device is closed.
+            </event>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If IsDeviceOpen is false.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.SetValue(System.Int32,System.Boolean)">
+            <summary>
+            Set the specified line on this device to the specified state.
+            Note that this method honors the configured polarity of the
+            specified line. That is, if the specified line is configured
+            for HighToLow polarity, the value argument will be inverted.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <param name="value">
+            The desired line state. Note that this method honors the
+            configured polarity of the specified line. That is, if the
+            specified line is configured for HighToLow polarity, the value
+            argument will be inverted.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the specified line is not currently enabled.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the port associated with the specified line is not
+            currently configured for output.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.GetValue(System.Int32)">
+            <summary>
+            Get the state of the specified line on this device.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <returns>
+            The state of the specified input line.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If IsDeviceOpen is false.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the specified line is not enabled.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the port associated with the specified line is not
+            configured for input.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.WriteSyncPulse(System.Int32)">
+            <summary>
+            Write a pulse to the specified line of this device. Use
+            the pulse duration and polarity values currently associated
+            with the specified line.
+            </summary>
+            <param name="line">
+            The line number. Must be in the range 0 to 23 inclusive.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the line argument is less than zero or greater than 23.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the specified line is not currently enabled.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the port associated with the specified line is not
+            currently configured for output.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.IsMCBPresent(System.Int32)">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.IsInputAsserted(System.Int32)">
+            <summary>
+            Manually check whether line is asserted or not.
+            </summary>
+            <param name="line">The input line of interest</param>
+            <returns>true if line is asserted.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.NumLines">
+            <summary>
+            How many lines on this device. Since this will always be 24,
+            this property is provided as a convenience.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.IsDeviceOpen">
+            <summary>
+            This property is true upon successfully calling the Open() method.
+            This property is false upon calling the Close() method. This
+            property must be true in order to call the Write(), SetValue(),
+            GetValue(), or WriteSyncPulse() methods.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            If this CogIOMCB object has already been disposed.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOMCB.InputPollingPeriod">
+            <summary>
+            Time period between each polling of inputs, in mSec.
+            The default value is 10ms.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOThreadCommand">
+            <summary>
+            Internal class which commands a thread what to do
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP">
+            <summary>
+            CogIOTCPIP.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Sf0">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfPortNumber">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfEncoding">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfQueueSize">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfTimeout">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfEnabled">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfOpen">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfClose">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfOutputMsgTerminator">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfOutputMsgDelimiter">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfClientType">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfClientAutoReconnect">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfOutputOnlyFailedResults">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.MaxPortNumber">
+            <summary>
+            The TCP/IP port number to which results will be sent and from which 
+            commands will be read. 
+            The default value is (rather arbitrarily) 5000.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.#ctor(System.String,Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode)">
+            <summary>
+            Summary description for CogIOTCPIP.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP._clientAutoConnect">
+            <summary>
+            True when the client device must automatically try to reconnect
+            to the server when its connection is lost. There is no guarantee
+            that the connection can be made again. Calling this routine
+            will not automatically start the reconnection if the device
+            is not already opened. It has no impact if the device is 
+            already closed. Set ClientAutoReconnect equals to true 
+            followed by Open(). If Open() fails, it will kick off
+            a thread whose responsibility is to perform auto-reconnect.
+            
+            This value can be set to false, while the device is open.
+            This means when the connection is lost, it will not attempt
+            to reconnect to the server.
+            
+            Auto retry feature turns on when CogJobManager goes online, 
+            and turns off when it goes offline automatically.
+            
+            This call is not thread safe.
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP._IOEnabled">
+            <summary>
+            For internal use only. This should only be called
+            from CogJobManager.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Open">
+            <summary>
+            This method does everything necessary to establish a valid communication
+            channel with the specified properties. That includes creating the 
+            low-level device object (e.g. a socket), ensuring that the output queue
+            is correctly sized and initially empty, and ensuring that the input 
+            buffer is empty. This method does nothing if IsDeviceOpen is already true
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP._syncClose">
+            <summary>
+            This function closes the socket and stops transmitting or receiving data
+            immediately. All unsent data will be ignored. 
+            Warning: This function does not check whether the device is open
+                     This routine can be called from Open.
+            Multiple threads might call this routine at the same time. One from either 
+            the read or write thread, or the other from a job's or job manager's thread.
+            Since Close happens asynchronously, we want only one thread to finish it,
+            and force the other threads to wait until its completion.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.CloseServer(System.Boolean)">
+            <summary>
+            This function closes the socket and stops transmitting or receiving data
+            immediately. All unsent data will be ignored. 
+            Warning: This function does not check whether the device is open
+                     This routine can be called from Open
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Close">
+            <summary>
+            This function closes the socket and stops transmitting or receiving data
+            immediately. All unsent data will be ignored. 
+            Warning: This function should never be called directly. It should only
+            be called from CogIOStreamDeviceManager
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Clear">
+            <summary>
+            Clear all items in the queue. Should be called before running all jobs.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Clear(System.Int32)">
+            <summary>
+            Remove all data items in the queue that belongs to a particular job.
+            Call this when Job's shutdown method is called or IOHandler's
+            IOQueueFlush is called
+            </summary>
+            <param name="jobID"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Encode(System.String)">
+            <summary>
+            Encode - This method returns the array of bytes, the result when the 
+            supplied string is encoded using the currently selected the encoding 
+            scheme
+            </summary>
+            <param name="text">the string text to encode</param>
+            <returns>array of bytes of the text encoded</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Stop(System.Int32,System.Boolean)">
+            <summary>
+            This API only affects the output processing rather than input.
+            Input can come in even though the output is no longer available.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Write(System.Int32,System.String)">
+            <summary>
+            Call this when more than one job are using the device
+            Returns false when queue overflows
+            </summary>
+            <param name="jobId">Job number</param>
+            <param name="message">message to be sent</param>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.MessageReceived">
+            <summary>
+            This event is fired whenever the device receives an input
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.MessageSent">
+            <summary>
+            This event is fired whenever the device send an output.
+            This is used to assist a visual indicator
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.JobCanStop">
+            <summary>
+            Used to indicate that the job can stop as
+            there are no more data to process after Stop is called.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.ServerConnectionChanged">
+            <summary>
+            Used only for the server device. This event is fired whenever
+            a client connection is added or removed from the server.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.ClientConnectionChanged">
+            <summary>
+            Used only for the client device. This event is fired whenever
+            a server connection is made.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.SocketReadError">
+            <summary>
+            This event should only be used for the purpose of decoding socket error
+            for TCP/IP.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Timeout">
+            <summary>
+            This timeout value is used for acknowledgement, sending and receiving 
+            data.
+            For Acknowledgment:
+            When AckEnabled is true, this is the maximum number of milliseconds that 
+            this device’s output processing thread will wait for an acknowledgement 
+            message. If this timeout is exceeded, the output processing thread will 
+            retransmit the message. This will be repeated up to AckNumRetries times. 
+            If the message is not acknowledged, the output processing thread 
+            generates an Error event.
+            For other cases:
+            It will throw a timeout error when it fails to successfully either send 
+            or the entire data.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Host">
+            <summary>
+            This property identifies the computer to which results will be sent and 
+            from which commands will be read. This string may be in the form of 
+            an IP address, that is, a 32-bit integer expressed as four 8-bit values 
+            separated by periods, such as “127.205.42.9”. When Open() is called, this
+            string will be evaluated to determine if it is in the form of an IP 
+            address. If it is then it will be used as such. If not, then we assume 
+            that this string is a host name which must be resolved using DNS. There is
+            no default value.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Mode">
+            <summary>
+            Returns true if the device is a client type.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.ClientConnectionCount">
+            <summary>
+            This function should only be called for the server device type
+            Returns 0 if the server socket has not been created, otherwise,
+            returns the actual number of clients connected.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.IsClientConnected">
+            <summary>
+            Returns true if the socket is connected.
+            Should only call this property if the device type is client.
+            Returns false if it is a server device type or the socket
+            has not been created.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.OutputOnlyFailedResult">
+            <summary>
+            When this property is true, it outputs the failed
+            job's results. This means, the I/O queue must contain
+            the job's run status, which is added automatically
+            before a Job starts to run.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Encoding">
+            <summary>
+            This is the encoding type that will be used to convert a queued output 
+            string into a sequence of bytes. The default value is ASCII.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.QueueSize">
+            <summary>
+            This is the maximum number of outbound strings that can be queued by this
+            device. 
+            The default value is 32.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.IsDeviceOpen">
+            <summary>
+            Socket must be valid and the data handler thread is valid.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.Enabled">
+            <summary>
+            Returns true when the device is enabled. This does not mean the device 
+            is closed. When the device is disabled, it will neither send nor 
+            receive data even though the device is open and the socket is connected.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.CogIOThreadsState">
+            <summary>
+            Internal class which represents the current state of the threads in a job
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.CogIOThreadsState.#ctor">
+            <summary>
+            Default constructor (internal only)
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.CogIOThreadsState.IsRunning">
+            <summary>
+            IsRunning (internal only)
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOOutputData">
+            <summary>
+            CogIOOutputData has to be passed to write method of CogIODevice. 
+            CogIOOutputData Includes the actual output data for device.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputData._device">
+            <summary>
+            A reference to the actual device.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputData.Device">
+            <summary>
+            Set or get CogIODevice
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore">
+            <summary>
+            Internal Semaphore class
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.#ctor(System.Int32)">
+            <summary>
+            MaxCount constructor
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Count constructor
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.Acquire">
+            <summary>
+            Acquire an unit (if available) waiting around forever
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.Acquire(System.Int32)">
+            <summary>
+            Acquire an unit (if available) waiting only for milliseconds
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.Release">
+            <summary>
+            Release a unit of the semaphore
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.Reset">
+            <summary>
+            Reset, sets the count back to the initial value
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.Count">
+            <summary>
+            Get the current count
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.MaxCount">
+            <summary>
+            Returns the max count
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.InitialCount">
+            <summary>
+            Returns the initial count 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOSemaphore.CountUnsafe">
+            <summary>
+            Get the current count (unsafely, used for testing ONLY)
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInputEventArgs">
+            <summary>
+            Input event args. When I/O device generates a input event to CogJobManager, CogIOInputEventArgs has to be passed to inform the input contents.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInputEventArgs.#ctor(Cognex.VisionPro.QuickBuild.IO.CogIOInfo)">
+            <summary>
+            Input event args constructor.
+            </summary>
+            <param name="deviceInfo">Information of the device to specify the input line.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputEventArgs.DeviceName">
+            <summary>
+            return which I/O device generates this event.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement">
+            <summary>
+            This class holds a discrete I/O line, a tool's property used to
+            collect the result, and a boolean flag to indicate whether the Warning
+            result must be treated as Reject or Accept.  The result collected from
+            this tool's property is sent to the I/O line.  This class is not
+            thread-safe.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.SfLine">
+            <summary> Line state flag.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.SfProperty">
+            <summary> Property state flag.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.SfTreatWarningAsReject">
+            <summary> TreatWarningAsReject state flag.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.SfNextSf">
+            <summary> NextSf state flag (for use by inheritor).</summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="line">A discrete I/O line number</param>
+            <param name="property">A tool's property that produces either
+            a boolean or CogToolResultConstants</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.#ctor(System.Int32,System.String,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="line">A discrete I/O line number</param>
+            <param name="property">A tool's property that produces either
+            a boolean or CogToolResultConstants</param>
+            <param name="treatWarningAsReject">When this is set to true and the
+            result is Warning, it is treated as Reject</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.Line">
+            <summary>
+            Get/Set a discrete device I/O line number.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.Property">
+            <summary>
+            Gets/Sets a tool's property that is used to collect a result.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement.TreatWarningAsReject">
+            <summary>
+            When Property produces a Warning result, it will be treated as Reject
+            when TreatWarningAsReject is set to true; Accept otherwise. It has no
+            impact when Property generates a boolean result.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList">
+            <summary>
+            CogIODiscreteElementList contains a list of CogIODiscreteElement.
+            This class is not thread-safe.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.SfNextSf">
+            <summary> NextSf state flag (for use by inheritor).</summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.#ctor">
+            <summary>
+            Constructor. Initializes the ArrayList.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Add(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement)">
+            <summary>
+            Appends the new element.
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Add(System.Int32,System.String)">
+            <summary>
+            Create a new CogIODiscreteElement and add it to the list.
+            </summary>
+            <param name="line"></param>
+            <param name="property"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Remove(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElement)">
+            <summary>
+            Removes a CogIODiscreteElement element from the list.
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Remove(System.Int32)">
+            <summary>
+            Removes a CogIODiscreteElement element from the list.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Remove(System.Int32,System.String)">
+            <summary>
+            Removes a CogIODiscreteElement object that contains the
+            matching line and property.
+            </summary>
+            <param name="line"></param>
+            <param name="property"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Clear">
+            <summary>
+            Clear the list.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Item(System.Int32)">
+            <summary>
+             Indexer.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteElementList.Count">
+            <summary>
+            Gets the number of elements actually contained in the list.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElement">
+            <summary>
+            Provide information for an IO stream elemen.
+            </summary>
+            <remarks>New</remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElement.#ctor">
+            <summary>
+            Initializez a new instance of CogIOStreamElement object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialize constructor.
+            </summary>
+            <param name="info">The serialization info object.</param>
+            <param name="context">The context stream object.</param>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementListChangedEventArgs.index">
+            <summary>
+            Index of the element.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementListChangedEventArgs.Element">
+            <summary>
+            The element being affected.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfAddElement">
+            <summary>A new element is being added.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfRemoveElement">
+            <summary>An existing element is being removed.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfInsertElement">
+            <summary>A new element is being inserted.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfReplaceElement">
+            <summary>An existing element is being replaced.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfSwap">
+            <summary>An existing element is being replaced.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfClear">
+            <summary>All existing elements are being removed.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.SfNextSf">
+            <summary> NextSf state flag (for use by inheritor).</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.list">
+            <summary>
+            List of CogIOStreamElement objects.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.#ctor">
+            <summary>
+            Initializes a new instance of CogIOStreamElementList.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialize constructor.
+            </summary>
+            <param name="info">The serialization info object.</param>
+            <param name="context">The context stream object.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList.GetEnumerator">
+            <summary>
+            Gets the enumerator of the list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter">
+            <summary>
+            Provide an abstraction for formatting a property value.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.DefaultFormatter">
+            <summary>
+            The default property formater.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.PrefefinedList">
+            <summary>
+            The system predefined list of formatters.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormatter(System.String)">
+            <summary>
+            Gets a formatter.
+            </summary>
+            <param name="aDisplayString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormatter(System.String,System.Boolean)">
+            <summary>
+            Gets a formatter.
+            </summary>
+            <param name="aDisplayString"></param>
+            <param name="shouldCreateOne"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.IsValidFormat(System.String)">
+            <summary>
+            Check if a format string is value
+            </summary>
+            <param name="aDisplayString">The format display string</param>
+            <returns>True is the format string is valid, false otherwise.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.IsValidFormat(System.String,System.Object)">
+            <summary>
+            Check if a format string is value
+            </summary>
+            <param name="aDisplayString">The format display string</param>
+            <param name="testValue">A test value</param>
+            <returns>True is the format string is valid, false otherwise.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CreateFormatter(System.String)">
+            <summary>
+            Creates a new formatter from its display string.
+            </summary>
+            <param name="aDisplayString"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter._displayString">
+            <summary>
+            Display string for the formatter.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter._formatExpression">
+            <summary>
+            The format expression.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of CogIOStreamFormatter.
+            </summary>
+            <param name="aDisplayString">A display string</param>
+            <param name="aFormatExpression">A format expression string</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.ToString">
+            <summary>
+            Converts the formater to string.
+            </summary>
+            <returns>The display string of the formatter.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.ToString(System.Object)">
+            <summary>
+            Converts a value to a formatted string defined by this formatter.
+            </summary>
+            <param name="value">The value being converted</param>
+            <returns>The formatted string</returns>
+            <remarks>
+            If the value being converted is a null reference this 
+            method will return a empty string.
+            </remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormattedString(System.Object,System.String)">
+            <summary>
+            Gets formatted string for value object.
+            </summary>
+            <param name="value">The value object</param>
+            <param name="format">The format string</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormattedString(System.Object,System.String,System.String)">
+            <summary>
+            Gets formatted string for a property of an instance of any object.
+            </summary>
+            <param name="instance">The instance object</param>
+            <param name="property">The property (path)</param>
+            <param name="format">The format</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormattedString(Cognex.VisionPro.ICogRecord,Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList,System.String)">
+            <summary>
+            Gets formatted string for a ICogRecord. 
+            </summary>
+            <param name="record">The record</param>
+            <param name="elementList">The element list</param>
+            <param name="delimiter">The delimiter</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormattedString(Cognex.VisionPro.ICogRecord,Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList,System.String,System.String)">
+            <summary>
+            Gets formatted string for a ICogRecord. 
+            </summary>
+            <param name="record">The record</param>
+            <param name="elementList">The element list</param>
+            <param name="delimiter">The delimiter</param>
+            <param name="terminator">The terminator</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.GetFormattedString(System.Object,Cognex.VisionPro.QuickBuild.IO.CogIOStreamElementList,System.String)">
+            <summary>
+            Gets formatted string for propeties of an instance of any object.
+            The properties are defined in the element list.
+            </summary>
+            <param name="instance">The instance object</param>
+            <param name="elementList">The element list contains the selected properties</param>
+            <param name="delimiter">The delimiter</param>
+            <returns>
+            The formatted string of the properties in the element list separated by
+            the delimiter.
+            </returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.ParsingFormatExpression(System.Int32@,System.Boolean@,System.String@)">
+            <summary>
+            Parsing the format expression.
+            </summary>
+            <param name="fixedLength">The fixed length value, if set.</param>
+            <param name="isPadLeft">The padding left option.</param>
+            <param name="pad">The padding string</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.ParsingFormatExpression(System.Int32@,System.Boolean@,System.String@,System.Boolean@)">
+            <summary>
+            Parsing the format expression.
+            </summary>
+            <param name="fixedLength">The fixed length value, if set.</param>
+            <param name="isPadLeft">The padding left option.</param>
+            <param name="pad">The padding string</param>
+            <param name="useThousandSeperator">True, if thousand separators should be used</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.ParsingFormatExpression(System.Int32@,System.Boolean@,System.String@,System.Boolean@,System.Int32@)">
+            <summary>
+            Parsing the format expression.
+            </summary>
+            <param name="fixedLength">The fixed length value, if set.</param>
+            <param name="isPadLeft">The padding left option.</param>
+            <param name="pad">The padding string</param>
+            <param name="useThousandSeperator">True, if thousand separators should be used</param>
+            <param name="decimalPaces">The number of decimal places should be used</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.DisplayString">
+            <summary>
+            Gets display string for this formatter.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.FormatExpression">
+            <summary>
+            Gets format expression for this formatter.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOStringFormatter">
+            <summary>
+            The formatter for string values.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOStringFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIODateTimeFormatter">
+            <summary>
+            The formatter for date time values.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIODateTimeFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOBooleanFormatter">
+            <summary>
+            The formatter for boolean values.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOBooleanFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOIntegerFormatter">
+            <summary>
+            The formatter for numeric value
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIOIntegerFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIODoubleFormatter">
+            <summary>
+            The formatter for float value
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOStreamFormatter.CogIODoubleFormatter.IsSupported(System.Type)">
+            <summary>
+            Check if this formatter support a specified type of object.
+            </summary>
+            <param name="type">The type being checked</param>
+            <returns>True type is supported, false otherwise.</returns>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8504">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber">
+            <summary>
+            Base class for all Cognex frame grabber's discrete I/O.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfIOConfig">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfInputLines">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfOutputLines">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfBiDirectionalLines">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfInputLineCount">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfOutputLineCount">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfBiDirectionalLineCount">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.inputLines">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.outputLines">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.biDirectionalLines">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.inputLineCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.outputLineCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.biDirectionalLineCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="hardwareClassName"></param>
+            <param name="deviceName"></param>
+            <param name="deviceIndex"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetInputLineCount(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="actualCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetOutputLineCount(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="actualCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetBiDirectionalLineCount(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="actualCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetInputLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetOutputLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLineStatus(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLineStatus(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.EnableLine(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="enable"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.EnableLine(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="enable"></param>
+            <param name="input"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLineAlias(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLineAlias(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLineAlias(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLineAlias(System.Int32,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="name"></param>
+            <param name="input"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CanBeStrobeLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CanBeTriggerLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLinePulseWidth(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLinePulseWidth(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLinePulseWidth(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="pulse"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLinePulseWidth(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="pulse"></param>
+            <param name="input"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLinePolarity(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetLinePolarity(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLinePolarity(System.Int32,Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="polarity"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLinePolarity(System.Int32,Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="polarity"></param>
+            <param name="input"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetCogOutputLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetCogInputLine(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetValue(System.Int32)">
+            <summary>
+            Returns the current line value. Don't call this function when the
+            frame grabber type is 8600. Lines are not thread-safe. You must
+            make sure that your code using this method is thread-safe.
+            </summary>
+            <param name="line">Line</param>
+            <returns>The current line value.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetValue(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetValue(System.Int32,System.Boolean)">
+            <summary>
+            Output lines are not thread-safe. You must make sure that your
+            code using this method is thread-safe.
+            </summary>
+            <param name="line"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetPrivateProfileString(System.String,System.String,System.String,System.Text.StringBuilder,System.UInt32,System.String)">
+            <summary>
+            Utility for reading VisionPro.ini file.
+            </summary>
+            <param name="frameGrabberName"></param>
+            <param name="ioConfig"></param>
+            <param name="defaultValue"></param>
+            <param name="returned"></param>
+            <param name="size"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.SetLinePolarity(System.Int32,Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity,Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine)">
+            <summary>
+            
+            </summary>
+            <param name="line"></param>
+            <param name="polarity"></param>
+            <param name="discreteLine"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.InitializeOutputLine(System.Int32,Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine,System.Boolean)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.Close">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.Write(Cognex.VisionPro.QuickBuild.IO.CogIOOutputData)">
+            <summary>
+            Output lines are not thread-safe. You must make sure that
+            your code using this method is thread-safe.
+            </summary>
+            <param name="writeData"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.WriteSyncPulse(System.Int32)">
+            <summary>
+            Output lines are not thread-safe. You must make sure that your
+            code using this method is thread-safe.
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetIOConfigTypeFromString(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetStringFromIOConfigType(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetIOConfigFromVisionProINI(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.IOConfig">
+            <summary>
+            Getter and setter for I/O configuration.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.GetStartingIOLine">
+            <summary>
+            Returns the starting I/O line
+            8501, 8504e and 8504 start from 0
+            8500Le starts from 8
+            8600:
+            Starts from 0 for CogIOFrameGrabberConfigType.LVDS and
+            CogIOFrameGrabberConfigType.TTL
+            Starts from 2 for CogIOFrameGrabberConfigType.DualLVDS
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.IsDeviceOpen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine">
+            <summary>
+            H/W configurations of Cognex Frame Grabber I/O line.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfName">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfPulseWidth">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfPolarity">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfStatus">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfInputCommand">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfCanBeStrobeLine">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfCanBeTriggerLine">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfLine">
+            <summary> </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.SfNextSf">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.#ctor">
+            <summary>
+            Initialize the configurations.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.Name">
+            <summary>
+            Gets or sets the name of this line.
+            </summary>
+            <value>The user can provide an alias for each line.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.PulseWidth">
+            <summary>
+            Gets or sets pulse width;
+            </summary>
+            <value>Pulse width for output. Debounce duration for input
+            line.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.Polarity">
+            <summary>
+            Gets ot sets I/O line polarity.
+            </summary>
+            <value>Low to High or High to Low.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.Status">
+            <summary>
+            Gets or sets line status.
+            </summary>
+            <value>Enabled or disabled the line.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.CanBeStrobeLine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.CanBeTriggerLine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabber.CogIODiscreteLine.Line">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8504.#ctor(System.String,System.Int32)">
+            <summary>
+            Construct CogIO8504 object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8504.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8504.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8504.IOConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600.#ctor(System.String,System.Int32)">
+            <summary>
+            Construct CogIO8600 object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600.IOConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8600.GetStartingIOLine">
+            <summary>
+            Returns the starting I/O line.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8501">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8501.#ctor(System.String,System.Int32)">
+            <summary>
+            Construct CogIO8501 object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8501.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8501.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8501.IOConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8500Le.#ctor(System.String,System.Int32)">
+            <summary>
+            Construct CogIO8500Le object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8500Le.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8500Le.Open">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIO8500Le.IOConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInfo">
+            <summary>
+            This is a base class which contains a device name.  CogIOSerialInfo,
+            CogIOTCPIPInfo, and CogIODiscreteInfo must derive from this
+            class. XXXDeviceInfo classes are used to describe a device type.  This
+            infomation is later used for retrieving an actual device object from
+            CogJobManager or for sending output data.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInfo.SfDeviceName">
+            <summary> DeviceName state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInfo.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInfo.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInfo.DeviceName">
+            <summary>
+            The name of the device.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList">
+            <summary>
+            CogIOInfoList includes all CogIOInfo derived objects.
+            Each job holds an instance of CogIOInfoList.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList.DiscreteInfoList">
+            <summary>
+            A list of CogIODiscreteInfo objects.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInfoList.TCPIPInfoList">
+            <summary>
+            A list of CogIOTCPIPInfo objects.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo">
+            <summary>
+            This class is used to capture Run Once, Run Continuously, Clear To Send,
+            Online, and EStrop input commands.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.SfInputLine">
+            <summary> DataReadyLine state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.SfDeviceIndex">
+            <summary> DeviceIndex state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="deviceName">Name of the device type like Cog8504.</param>
+            <param name="deviceIndex">The device index like 0, 1, etc.</param>
+            <param name="inputLine">A discrete device's input line number
+            starts from 0.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.InputLine">
+            <summary>
+            The input line number.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfo.DeviceIndex">
+            <summary>
+            The device index.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList">
+            <summary>
+            This class defines all the input commands that are supported by CogJob.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfClearToSendInfo">
+            <summary>  </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfRunOnceInfo">
+            <summary>  </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfRunContinouslyInfo">
+            <summary>  </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfOnLineInfo">
+            <summary>  </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfEStopInfo">
+            <summary>  </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.RunOnce">
+            <summary>
+            Getter and setter for RunOnce
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.RunContinuously">
+            <summary>
+            Getter and setter for RunContinuously
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.OnLine">
+            <summary>
+            When this line is asserted, QuickBuild application goes into online mode.
+            Only used by CogJobManager.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOInputLineInfoList.EStop">
+            <summary>
+            When this line is asserted, QuickBuild stops all jobs and goes into offline mode.
+            Only used by CogJobManager.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo">
+            <summary>
+            This class is used to generate data ready, move part, acq complete,
+            etc., signals.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.SfOutputLine">
+            <summary> DataReadyLine state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.SfDeviceIndex">
+            <summary> DeviceIndex state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="deviceName">Name of the device type like Cog8504.</param>
+            <param name="deviceIndex">The device index like 0, 1, etc.</param>
+            <param name="outputLine">A discrete device's output line number
+            starts from 0.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.OutputLine">
+            <summary>
+            The output line number.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfo.DeviceIndex">
+            <summary>
+            The device index.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList">
+            <summary>
+            This class defines all the output commands that are supported by CogJob.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfDataReadyInfo">
+            <summary> DataReadyInfo state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfMovePartInfo">
+            <summary> MovePartInfo state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfAcqCompleteInfo">
+            <summary> AcqCompleteInfo state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfLevelJobRunningInfo">
+            <summary> AcqCompleteInfo state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfPulsedJobRunningInfo">
+            <summary> AcqCompleteInfo state flag. </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.DataReadyInfo">
+            <summary>
+            Get or set CogIOOutputLineInfo to handle the data ready signal.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.MovePartInfo">
+            <summary>
+            Get or set CogIOOutputLineInfo to handle the acquisition
+            move part event.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.AcqCompleteInfo">
+            <summary>
+            Get or set CogIOOutputLineInfo to handle the acquisition
+            complete event.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.LevelJobRunningInfo">
+            <summary>
+            Get or set CogIOOutputLineInfo to handle the job running
+            signal. Asserts OutputLine when the job starts running 
+            and de-asserts OutputLine when the job stops. used for the
+            single run case.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOOutputLineInfoList.PulsedJobRunningInfo">
+            <summary>
+            Get or set CogIOOutputLineInfo to handle the job running
+            signal. Starts the job heartbeat when it starts, and stops
+            the job heartbeat when the job stops. Used for the continuous
+            running case.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo">
+            <summary>
+            CogIODiscreteInfo describes the type of Cognex frame grabbers I/O.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="deviceName">Device name.</param>
+            <param name="deviceIndex">The device index.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo.DiscreteElementList">
+            <summary>
+            The list of CogIODiscreteElements.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo.DeviceIndex">
+            <summary>
+            The device index.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.SfNextSf">
+            <summary> DataReadyInfo state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Add(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo)">
+            <summary>
+            Appends the new element
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Add(System.String,System.Int32)">
+            <summary>
+            Create a new CogIODiscreteElement and add it to the list
+            </summary>
+            <param name="deviceName"></param>
+            <param name="deviceIndex"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Remove(Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfo)">
+            <summary>
+            Removes a CogIODiscreteInfo element from the list.
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Remove(System.Int32)">
+            <summary>
+            Removes a CogIODiscreteElement element from the list.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Remove(System.String,System.Int32)">
+            <summary>
+            Removes a CogIODiscreteElement object that contains the
+            matching line and property.
+            </summary>
+            <param name="deviceName"></param>
+            <param name="deviceIndex"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.GetCogIODiscreteInfo(System.String,System.Int32)">
+            <summary>
+            Returns a CogIODiscreteInfo object that has matching device name and
+            device index; otherwise, returns null.
+            </summary>
+            <param name="deviceName"></param>
+            <param name="deviceIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Clear">
+            <summary>
+            Clear the list.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Item(System.Int32)">
+            <summary>
+            Indexer.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteInfoList.Count">
+            <summary>
+            How many CogIODiscreteInfo objects are in the list.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.SfNextSf">
+            <summary> NextSf state flag. </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.#ctor(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of CogIOTCPIPInfo.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.#ctor(System.String,Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of CogIOTCPIPInfo.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.Apply(Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOTCPIP.DeviceMode,System.String,System.Int32)">
+            <summary>
+            Apply new host and port number.
+            </summary>
+            <param name="mode">Either server or client.</param>
+            <param name="host">The new host.</param>
+            <param name="portNumber">The new port number.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.ElementList">
+            <summary>
+            Gets the list of CogIODiscreteElement.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.Host">
+            <summary>
+            Gets the host of the TCP/IP device. 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.PortNumber">
+            <summary>
+            Gets the port number of the TCP/IP device.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfo.Mode">
+            <summary>
+            Returns either server or client mode
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfoList.#ctor">
+            <summary>
+            Initializes a new instance of CogIOTCPIPInfoList object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIOTCPIPInfoList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOUnmatchedIndexException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUnmatchedIndexException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUnmatchedIndexException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUnmatchedIndexException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUnmatchedIndexException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOIllegalChangeException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOIllegalChangeException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOIllegalChangeException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOIllegalChangeException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOIllegalChangeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOUndefinedIOConfigurationException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUndefinedIOConfigurationException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUndefinedIOConfigurationException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUndefinedIOConfigurationException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOUndefinedIOConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOOpenFailureException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOOpenFailureException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOOpenFailureException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOOpenFailureException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOOpenFailureException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOCloseFailureException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOCloseFailureException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOCloseFailureException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOCloseFailureException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOCloseFailureException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOMissingFrameGrabberException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOMissingFrameGrabberException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOMissingFrameGrabberException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOMissingFrameGrabberException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOMissingFrameGrabberException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOInvalidFrameGrabberTypeException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidFrameGrabberTypeException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidFrameGrabberTypeException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidFrameGrabberTypeException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidFrameGrabberTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOInvalidLineTypeException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidLineTypeException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidLineTypeException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidLineTypeException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOInvalidLineTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOWriteFailureException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOWriteFailureException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOWriteFailureException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOWriteFailureException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOWriteFailureException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogIOHeartbeatAlreadyRunningException">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOHeartbeatAlreadyRunningException.#ctor">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOHeartbeatAlreadyRunningException.#ctor(System.String)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOHeartbeatAlreadyRunningException.#ctor(System.String,System.Exception)">
+            <summary> </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Exceptions.CogIOHeartbeatAlreadyRunningException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary> </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDataItem">
+            <summary>
+            This class is used to describe which line should be programmed to what value
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDataItem.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="line">An output line number</param>
+            <param name="dataValue">A value to be written to a line</param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDataItem.Line">
+            <summary>
+            Set or get a line number. The line number must be
+            greater than 0 and less than 31; otherwise, 
+            ArgumentOutOfRangeException will be thrown
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteDataItem.Value">
+            <summary>
+            Value to be written to Line when it is passed to CogIODevice’s Write.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteData">
+            <summary>
+            This class is used to hold a collection of CogIODiscreteDataItems to be used 
+            to program physical output lines.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteData.#ctor(Cognex.VisionPro.QuickBuild.IO.CogIODevice)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="device">CogIODevice derived object. 
+            This object is later used when Write is called.
+            </param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.IO.CogIODiscreteData.DataList">
+            <summary>
+            Holds a collection of CogIODiscreteDataItem.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOPulseData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOPulseData.#ctor(Cognex.VisionPro.QuickBuild.IO.CogIODevice,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="device"></param>
+            <param name="line"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOPulseData.#ctor(Cognex.VisionPro.QuickBuild.IO.CogIODevice)">
+            <summary>
+            
+            </summary>
+            <param name="device"></param>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOPulseData.Line">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIODiscreteDataList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIODiscreteDataList.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIODiscreteDataList.DataReady">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIODiscreteDataList.DataList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity">
+            <summary>
+            Indicates polarity of the line.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity.LowToHigh">
+            <summary>
+            If the line is input, a input event is generated when the
+            value changes from low to high. If the line is output, one
+            signal is output as active high.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.IO.CogIOLinePolarity.HighToLow">
+            <summary>
+            If the line is input, a input event is generated when the
+            value changes from hight to low. If the line is output, one
+            signal is output as active low.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStateChangedArg">
+            <summary>
+            Cognex internal use only
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType">
+            <summary>
+            I/O configuration for Cognex Frame Grabber.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.Undefined">
+            <summary>I/O configuration is not defined.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.Standard">
+            <summary>Standard configuration is used by 8100D/8501/8504.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.External">
+            <summary>External configuration is used by 8100D/8501/8504.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.Split">
+            <summary>Split configuration is used by 8501/8504.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.LVDS">
+            <summary>LVDS configuration is used by 8600.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.TTL">
+            <summary>TTL configuration is used by 8600.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOFrameGrabberConfigType.DualLVDS">
+            <summary>DualLVDS configuration is used by 8600.</summary>
+        </member>
+        <member name="T:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus">
+            <summary>
+            Indicates status of each I/O line.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.InputDisabled">
+            <summary>Input line is disabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.InputEnabled">
+            <summary>Input line is enabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.OutputDisabled">
+            <summary>Output line is disabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.OutputEnabled">
+            <summary>Output line is enabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.BiDirectionUsedAsInput">
+            <summary>Bi-directional line is set as input and enabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.BiDirectionUsedAsOutput">
+            <summary>Bi-directional line is set as output and enabled.</summary>
+        </member>
+        <member name="F:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOLineStatus.BiDirectionDisabled">
+            <summary>Bi-directional line is not set as input nor output.</summary>
+        </member>
+        <member name="M:Cognex.VisionPro.QuickBuild.Implementation.Internal.CogIOInputLineData.UpdateLineState(System.Boolean)">
+            <summary>
+            Updates the state of the line, calling the delegate if needed
+            </summary>
+            <param name="asserted">The state of the line, including polarity</param>
+        </member>
+    </members>
+</doc>

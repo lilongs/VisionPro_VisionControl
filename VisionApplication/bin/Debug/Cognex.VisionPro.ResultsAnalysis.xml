@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro.ResultsAnalysis</name>
+    </assembly>
+    <members>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisTool.SfRunParams">
+            <summary>
+            State flag for the RunParams property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogResultsAnalysisExpressionException">
+            <summary>
+            Base class for all results analysis exceptions.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Exceptions.CogResultsAnalysisExpressionException.ErrorExpression">
+            <summary>
+            The expression object that generated the exception.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Exceptions.CogResultsAnalysisExpressionException.ExpressionName">
+            <summary>
+            The name of the expression object that generated the exception. Note that
+            this may be null for unnamed expressions. 
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogResultsAnalysisCircularDependencyException">
+            <summary>
+            Exception indicating that an expression, either directly or indirectly, depends
+            on itself. Circularities in the expression object graph are not solvable.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Exceptions.CogResultsAnalysisDependencyEvaluationException">
+            <summary>
+            Exception indicating that the expression named in ExpressionName could not be
+            evaluated because a dependent expression failed to evaluate successfully.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisOperator">
+            <summary>
+            Base class for results analysis operators
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisOperator.NewDefaultExpression">
+            <summary>
+            Creates a new expression of the appropriate type for the operator, with null
+            arguments.
+            </summary>
+            <returns>The newly constructed expression.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisOperator.DisplayName">
+            <summary>
+            A name that describes the operator, e.g., "Add".
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisOperator.SymbolFormat">
+            <summary>
+            A format string that describes the operation via mathematical symbols, e.g., "{0} + {1}"
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression">
+            <summary>
+            Base class for results analysis expressions.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression.Evaluate(Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisEvaluationContext)">
+            <summary>
+            Evaluates the expression in the given evaluation context.  The context insures each 
+            expression is evaluated only once and stores the outcome (resulting value or exception).
+            </summary>
+            <param name="context">The context in which the expression and its arguments should
+            be evaluated.
+            </param>
+            <returns>The value of the expression in the given context.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression.Format(System.Int32,Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams)">
+            <summary>
+            Formats a string that represents the expression in the standard
+            mathematical sense, containing any named arguments. For example, for 
+            an arithmatic addition expression with arguments X and Y, this would be 
+            "X + Y".
+            </summary>
+            <param name="recurseLevels">Number of levels to recurse. Usually zero, but expands more
+            with each level.</param>
+            <param name="identifiers">The names of identifiers in the context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression.DeepCopy(System.Collections.IDictionary)">
+            <summary>
+            This method can be used to replicate an entire expression object graph.
+            </summary>
+            <param name="objectGraph">A dictionary of objects already created in the copied graph.</param>
+            <returns>The copied expression, also added to objectGraph.</returns>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression.Operator">
+            <summary>
+            The operator used to evaluate the expression.  
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisEvaluationInfo.Value">
+            <summary>
+            The value of the expression when evaluated.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisEvaluationInfo.ErrorInfo">
+            <summary>
+            The exception generated by the expression when evaluated. This will be
+            null if the expression evaluated successfully.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisEvaluationInfo.Success">
+            <summary>
+            True if the expression evaluated successfully.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisEvaluationInfo.Expression">
+            <summary>
+            The expression in the state it was in at evaluation time.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs">
+            <summary>
+            The derived CogChangedEventArgs fired by CogResultsAnalysisExpressions. These
+            event args contain additional information indicating whether the change was 
+            directly to the firing expression object (sender) or to a dependency.  In the 
+            root dependency event args (the one that has DependencyEvent == false), it 
+            contains the OldValue of the changed state (indicated in the root event args 
+            StateFlags).
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.ContainsSender(System.Object)">
+            <summary>
+            Returns true if the given object is one of the expression objects 
+            that changed in this chain of change events, otherwise false. 
+            </summary>
+            <param name="sender">An object to check.</param>
+            <returns>True if the given object is one of the expression objects that 
+            changed in this chain of change events, otherwise false.
+            </returns>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.DependencyEvent">
+            <summary>
+            Flag indicating whether the sending expression was changed directly, or
+            a dependent expression of the sender was changed. If the sender was changed
+            directly (DependencyEvent == false), the StateFlags indicate what piece of state 
+            was changed, and Value and OldValue contain the new and previous values of that
+            piece of state, respectively.  Otherwise, Value and OldValue are null (Nothing).
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.DependencyEventArgs">
+            <summary>
+            The event args originally fired by DependencyEventSender, if DependencyEvent is true,
+            otherwise null (Nothing).  
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.DependencyEventSender">
+            <summary>
+            The expression object that originally fired DependencyEventArgs, if DependencyEvent 
+            is true, otherwise null (Nothing).
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.Value">
+            <summary>
+            The new value of the property indicated in StateFlags.
+            If DepedencyEvent is true, Value and OldValue will be null and
+            the values must be obtained from DepedencyEventArgs.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogExpressionChangedEventArgs.OldValue">
+            <summary>
+            The previous value of the property indicated in StateFlags.
+            If DepedencyEvent is true, Value and OldValue will be null and
+            the values must be obtained from DepedencyEventArgs.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisUnaryExpression">
+            <summary>
+            Base class for expressions that take a single argument.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisUnaryExpression.SfArgument">
+            <summary>
+            State flag for the Argument property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisBinaryExpression">
+            <summary>
+            Base class for expressions that take two arguments.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisBinaryExpression.SfArgument0">
+            <summary>
+            State flag for the Argument0 property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisBinaryExpression.SfArgument1">
+            <summary>
+            State flag for the Argument1 property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisNullExpression">
+            <summary>
+            NULL expression.  Takes no arguments, returns null.  Can be used as a place holder.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisConstantExpression">
+            <summary>
+            Constant expression.  Takes no arguments, returns value given at construction.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisInputExpression">
+            <summary>
+            Input expression.  Holds one argument that can be connected to a tool input terminal.  
+            Returns this value when evaluated.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisInputExpression.SfValue">
+            <summary>
+            State flag for the Argument property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisVectorInputExpression">
+            <summary>
+            Vector input expression.  Holds one ICollection value that may be connected 
+            to a tool input terminal, and the name of a property to select on the collection elements. 
+            When evaluated, returns an array of the values of the selected member on each element.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisVectorInputExpression.SfMemberSelection">
+            <summary>
+            State flag for the MemberSelection property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisResultExpression.SfResultIfArgumentTrue">
+            <summary>
+            State flag for the ResultIfArgumentTrue property.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams">
+            <summary>
+            Run parameters for the results analysis tool. Contains a collection of named 
+            expressions to be evaluated when the tool is run.  Note that the expressions are 
+            enumerated in the order in which they are evaluated.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams.SfItem">
+            <summary>
+            State flag for the Item (indexer) property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams.SfCount">
+            <summary>
+            State flag for the Count property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams.Add(System.String,Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisExpression)">
+            <summary>
+            Adds an expression with the given name to the collection. The name must be 
+            unique in the collection.
+            </summary>
+            <param name="key">The name of the expression</param>
+            <param name="value">The expression to add.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams.Remove(System.String)">
+            <summary>
+            Removes the expression with the given name.  References to this expression elsewhere
+            in the call tree, if any, are set to null.
+            </summary>
+            <param name="key">The name of the expression to remove.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.ResultsAnalysis.CogResultsAnalysisRunParams.Item(System.String)">
+            <summary>
+            Returns the expression with the given name key.  
+            </summary>
+        </member>
+    </members>
+</doc>

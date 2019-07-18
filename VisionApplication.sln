@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisionApplication", "VisionApplication\VisionApplication.csproj", "{0135AB58-3551-425B-BF24-CF40606AEA54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisionControl", "VisionControl\VisionControl.csproj", "{29E47515-CE28-4D06-87F4-0DC52F6AD67E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0135AB58-3551-425B-BF24-CF40606AEA54}.Debug|x64.ActiveCfg = Debug|x64
+		{0135AB58-3551-425B-BF24-CF40606AEA54}.Debug|x64.Build.0 = Debug|x64
+		{0135AB58-3551-425B-BF24-CF40606AEA54}.Release|x64.ActiveCfg = Release|x64
+		{0135AB58-3551-425B-BF24-CF40606AEA54}.Release|x64.Build.0 = Release|x64
+		{29E47515-CE28-4D06-87F4-0DC52F6AD67E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{29E47515-CE28-4D06-87F4-0DC52F6AD67E}.Debug|x64.Build.0 = Debug|Any CPU
+		{29E47515-CE28-4D06-87F4-0DC52F6AD67E}.Release|x64.ActiveCfg = Release|Any CPU
+		{29E47515-CE28-4D06-87F4-0DC52F6AD67E}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
