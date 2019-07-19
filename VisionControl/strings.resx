@@ -372,4 +372,7 @@
   <data name="RtStatsNA" xml:space="preserve">
     <value>无</value>
   </data>
+  <data name="RtChoseButton" xml:space="preserve">
+    <value>选择工程</value>
+  </data>
 </root>

@@ -369,6 +369,7 @@ namespace VisionControl
             this.btnRun.Text = ResourceUtility.GetString("RtRunOnceButton");
             this.btnRunCont.Text = ResourceUtility.GetString("RtRunContinuouslyButton");
             this.button_About.Text = ResourceUtility.GetString("RtAboutButton");
+            this.button_Chose.Text = ResourceUtility.GetString("RtChoseButton");
             this.button_Configuration.Text = ResourceUtility.GetString("RtConfigurationButton");
             this.checkBox_LiveDisplay.Text = ResourceUtility.GetString("RtLiveImageButton");
             this.button_SaveSettings.Text = ResourceUtility.GetString("RtSaveSettingsButton");
