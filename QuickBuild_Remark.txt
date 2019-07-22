@@ -1,0 +1,1 @@
+1：QuickBuild1.vpp工程文件中对应的Image的路径是固定写死在工程里的
